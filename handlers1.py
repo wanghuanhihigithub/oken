@@ -23,7 +23,7 @@ def check_admin(request):
 def api_get_usdts():
     trade_url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbol=usdt&legalCurrencySymbol=cny&best=0&exchangeRateLevel=0&paySupport=0"
     headers = {
-        'authorization': '',
+        'authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI4ZTY2MmQwNy1hZGFiLTRmZmItYTRmYS03ZDFjNDY5YTM4YmJ6VUZWIiwidWlkIjoiM2xuNzNkSmxtNXJhQzZIK0RtWG9Rdz09Iiwic3ViIjoiMTg5KioqODQ5MCIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1MjcwNzUzMzUsImV4cCI6MTUyNzY4MDEzNSwiaXNzIjoib2tjb2luIn0.n3NVhw3C2rAxcxeBOhnDbtxuM56TtZsk90gXlIBpOp7UD1riMLVvkm1jzzjHWed34I3DDhaqH7EjCOlAYYqs3A',
         'content-type': 'application/json',
         'cookie': '__cfduid=d268f871c1f8ddf6683c1293165f5ee831525785471; locale=zh_CN; _ga=GA1.2.1105539038.1525785471; first_ref=https://www.okex.com/account/login.htm; perm=85E2BB8DDAF5EC8B4DAB9C6429D20733; _gid=GA1.2.1414655093.1526568686; Hm_lvt_b4e1f9d04a77cfd5db302bc2bcc6fe45=1525785472,1526568686,1526644458; isLogin=1; product=btc_usdt; lp=/future/trade; Hm_lpvt_b4e1f9d04a77cfd5db302bc2bcc6fe45=1526649066; ref=https://www.okex.com/futureTrade/beforeFuture; _gat_gtag_UA_115738092_1=1',
         'referer': 'https://www.okex.com/fiat/c2c',
@@ -31,9 +31,17 @@ def api_get_usdts():
     }
     r = requests.get(trade_url, headers=headers)
     usdts = json.loads(r.text)
+    trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=btc_usdt"
+    r1 = requests.get(trade_url, headers=headers)
+    ticketInfo = json.load(r1.text)
+    btc = input("请输入btc价格")
     for i in usdts["data"]["buyTradingOrders"]:
-        yield from Usdt.save(dict2obj(Usdt(), i))
-    usdts = yield from Usdt.findAll()
+        print(i + (50000 * btc / ticketInfo["ticker"]["low"] / i["exchangeRate"] - 50000 -100))
+        #yield from Usdt.save(dict2obj(Usdt(), i))
+    for i in usdts["data"]["sellTradingOrders"]:
+        print(i + (50000 * btc / ticketInfo["ticker"]["low"] / i["exchangeRate"] - 50000 - 100))
+        #yield from Usdt.save(dict2obj(Usdt(), i))
+    #usdts = yield from Usdt.findAll()
     return usdts
 
 # 将class转dict,以_开头的属性不要

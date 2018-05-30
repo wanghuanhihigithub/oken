@@ -5,9 +5,10 @@
 Configuration
 '''
 
-__author__ = 'Michael Liao'
+__author__ = 'Wang Huan'
 
 import config_default
+
 
 class Dict(dict):
     '''
@@ -27,6 +28,7 @@ class Dict(dict):
     def __setattr__(self, key, value):
         self[key] = value
 
+
 def merge(defaults, override):
     r = {}
     for k, v in defaults.items():
@@ -38,6 +40,7 @@ def merge(defaults, override):
         else:
             r[k] = v
     return r
+
 
 def toDict(d):
     D = Dict()

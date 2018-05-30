@@ -1,18 +1,19 @@
 import websocket
+import time
 import sys
+import json
 import hashlib
 import zlib
+import base64
 
 api_key=''
 secret_key = ""
-
 #business
 def buildMySign(params,secretKey):
     sign = ''
     for key in sorted(params.keys()):
         sign += key + '=' + str(params[key]) +'&'
     return  hashlib.md5((sign+'secret_key='+secretKey).encode("utf-8")).hexdigest().upper()
-
 #spot trade
 def spotTrade(channel,api_key,secretkey,symbol,tradeType,price='',amount=''):
     params={
@@ -87,7 +88,7 @@ def futureCancelOrder(api_key,secretkey,symbol,orderId,contractType):
 def futureRealTrades(api_key,secretkey):
     params = {'api_key':api_key}
     sign = buildMySign(params,secretkey)
-    return "{'event':'addChannel','channel':'ok_sub_futureusd_trades','parameters':{'api_key':'"+api_key+"','sign':'"+sign+"'},'binary':'true'}"
+    return "{'event':'addChannel','channel':'ok_sub_futureusd_tradesok_sub_futureusd_trades','parameters':{'api_key':'"+api_key+"','sign':'"+sign+"'},'binary':'true'}"
 
 def on_open(self):
     #subscribe okcoin.com spot ticker
@@ -125,8 +126,8 @@ def on_open(self):
     #futureRealTradesMsg = futureRealTrades(api_key,secret_key)
     #self.send(futureRealTradesMsg)
 def on_message(self,evt):
-    data = inflate(evt) #data decompress
-    print (data)
+    # data = inflate(evt) #data decompress
+    print (evt)
 def inflate(data):
     decompress = zlib.decompressobj(
             -zlib.MAX_WBITS  # see above
@@ -142,7 +143,7 @@ def on_close(self,evt):
     print ('DISCONNECT')
 
 if __name__ == "__main__":
-    url = "wss://real.okcoin.com:10440/websocket/okcoinapi"      #if okcoin.cn  change url wss://real.okcoin.cn:10440/websocket/okcoinapi
+    url = "wss://okexcomreal.bafang.com:10441/websocket"      #if okcoin.cn  change url wss://real.okcoin.cn:10440/websocket/okcoinapi
     api_key='your api_key which you apply'
     secret_key = "your secret_key which you apply"
 
