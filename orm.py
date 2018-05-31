@@ -87,7 +87,7 @@ class Field(object):
 
 class StringField(Field):
 
-    def __init__(self, name=None, primary_key=False, default=None, ddl='varchar(100)'):
+    def __init__(self, name=None, primary_key=False, default=None, ddl='varchar(5000)'):
         super().__init__(name, ddl, primary_key, default)
 
 
@@ -96,6 +96,10 @@ class BooleanField(Field):
     def __init__(self, name=None, default=False):
         super().__init__(name, 'boolean', False, default)
 
+class DateTimeField(Field):
+
+    def __init__(self, name=None, default=False):
+        super().__init__(name, 'datetime', False, default)
 
 class IntegerField(Field):
 
@@ -114,6 +118,11 @@ class TextField(Field):
     def __init__(self, name=None, default=None):
         super().__init__(name, 'text', False, default)
 
+
+class MediumTextField(Field):
+
+    def __init__(self, name=None, default=None):
+        super().__init__(name, 'mediumtext', False, default)
 
 class ModelMetaclass(type):
 

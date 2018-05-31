@@ -24,5 +24,5 @@ create table coinProfit (
     `vsJson` varchar(200) not null,
     `fromToProfit` real not null,
     `toFromProfit` real not null,
-    `createdTime` real not null
+    `createdTime` varchar(100) not null
 ) engine=innodb default charset=utf8;

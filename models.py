@@ -7,8 +7,9 @@ Models for Usdt
 
 __author__ = 'Wang Huan'
 
-from orm import Model, StringField, BooleanField, FloatField, IntegerField
+from orm import Model, StringField, BooleanField, FloatField, IntegerField,DateTimeField,TextField,MediumTextField
 import time, uuid
+
 
 def next_id():
     return '%015d%s000' % (int(time.time() * 1000), uuid.uuid4().hex)
@@ -72,9 +73,9 @@ class CoinProfit(Model):
     lastVs = FloatField()
     buy = FloatField()
     sell = FloatField()
-    fromJson = StringField(ddl='varchar(1000)')
-    toJson = StringField(ddl='varchar(1000)')
+    fromJson = MediumTextField()
+    toJson = MediumTextField()
     vsJson = StringField(ddl='varchar(1000)')
     fromToProfit = FloatField()
     toFromProfit = FloatField()
-    createdTime = FloatField(default=time.time)
+    createdTime = StringField(ddl='varchar(100)')
