@@ -7,17 +7,15 @@ __author__ = 'Wang Huan'
 async web application.
 '''
 
-import logging; logging.basicConfig(level=logging.INFO)
+import logging; logging.basicConfig(level=logging.INFO,filename='stu.log')
 
 import asyncio
 import json
 import time
 from datetime import datetime
-
 from aiohttp import web
 
 from config import configs
-
 import orm
 from coroweb import add_routes, add_static
 

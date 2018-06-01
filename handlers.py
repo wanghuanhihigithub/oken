@@ -12,15 +12,16 @@ from config import configs
 import requests
 import json
 
-from  decimal import Decimal
+from decimal import Decimal
+from datetime import datetime
+import asyncio
 
 COOKIE_NAME = 'awesession'
 _COOKIE_KEY = configs.session.secret
 
-
 #全局的header
 headers = {
-    'authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJiZjk5YzNkMS02YWU3LTQ5ZDgtYTM5Yi01MTdkNjY5ZDJlYTRka1hhIiwidWlkIjoiM2xuNzNkSmxtNXJhQzZIK0RtWG9Rdz09Iiwic3ViIjoiMTg5KioqODQ5MCIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1MjczMTA0ODYsImV4cCI6MTUyNzkxNTI4NiwiaXNzIjoib2tjb2luIn0.pelyCGEJOl3X4qs0N6bl4W7gST5M4X95Aq-PogB5TNGUHgjUA2wEuI1sJ2NnH0p9Q-IatfyZp5ZkoTgalMaNpg',
+    'authorization': '',
     'content-type': 'application/json',
     'cookie': '__cfduid=d268f871c1f8ddf6683c1293165f5ee831525785471; locale=zh_CN; _ga=GA1.2.1105539038.1525785471; first_ref=https://www.okex.com/account/login.htm; perm=85E2BB8DDAF5EC8B4DAB9C6429D20733; _gid=GA1.2.1414655093.1526568686; Hm_lvt_b4e1f9d04a77cfd5db302bc2bcc6fe45=1525785472,1526568686,1526644458; isLogin=1; product=btc_usdt; lp=/future/trade; Hm_lpvt_b4e1f9d04a77cfd5db302bc2bcc6fe45=1526649066; ref=https://www.okex.com/futureTrade/beforeFuture; _gat_gtag_UA_115738092_1=1',
     'referer': 'https://www.okex.com/fiat/c2c',
@@ -31,85 +32,20 @@ def check_admin(request):
     if request.__user__ is None or not request.__user__.admin:
         raise APIPermissionError()
 
-@get('/usdts')
-def api_get_usdts():
-    #获取btcPrice
-    btcPrice = getBtcPrice()
-    #获取btc最低卖价
-    btcMinSalePrice = getMinSalePrice(btcPrice)
-    #获取btc最高买入价
-    btcMaxBuyPrice = getMaxBuyPrice(btcPrice)
-    btcVsUsdt = getBtcVsUsdt()
-    btcVsUsdt_low = btcVsUsdt["ticker"]["buy"]
-    usdtPrice = getUsdtPrice()
-    # 获取usdt最低卖价
-    usdtMinSalePrice = getMinSalePrice(usdtPrice)
-    # 获取usdt最高买入价
-    usdtMaxBuyPrice = getMaxBuyPrice(usdtPrice)
-    print("50000/usdt最低买价/usdt-btc的个数 * btc的最高卖价- 50000 - 100")
-    fromToProfit = 50000 * Decimal(btcMaxBuyPrice) / Decimal(btcVsUsdt_low) /Decimal(usdtMinSalePrice) -50000 - 100
-    print("usdt-btc的最大利润", (50000 * Decimal(btcMaxBuyPrice) / Decimal(btcVsUsdt_low) /Decimal(usdtMinSalePrice) -50000 - 100))
-    print("50000/btc最低买价 * usdt-btc的个数 * usdt的最高卖价-50000 - 100")
-    toFromProfit = 50000 / Decimal(btcMinSalePrice) * Decimal(btcVsUsdt_low) * Decimal(usdtMaxBuyPrice) -50000 -100
-    coinProfit = CoinProfit()
-    coinProfit.fromType = "usdt"
-    coinProfit.toType = "btc"
-    coinProfit.fromMaxBuyPrice = usdtMaxBuyPrice
-    coinProfit.fromMinSalePrice = usdtMinSalePrice
-    coinProfit.toMaxBuyPrice = btcMaxBuyPrice
-    coinProfit.toMinSalePrice = btcMinSalePrice
-    coinProfit.fromJson = json.dumps(usdtPrice)
-    coinProfit.toJson = json.dumps(btcPrice)
-    coinProfit.vsJson = json.dumps(btcVsUsdt)
-    coinProfit.buy = btcVsUsdt["ticker"]["buy"]
-    coinProfit.sell = btcVsUsdt["ticker"]["sell"]
-    coinProfit.lastVs = btcVsUsdt["ticker"]["last"]
-    coinProfit.fromToProfit = fromToProfit
-    coinProfit.toFromProfit = toFromProfit
-    yield from CoinProfit.save(coinProfit)
-    return (yield from CoinProfit.findAll(orderBy='createdTime desc'))
-
-# 将class转dict,以_开头的属性不要
-def props(obj):
-    pr = {}
-    for name in dir(obj):
-        value = getattr(obj, name)
-        if not name.startswith('__') and not callable(value) and not name.startswith('_'):
-            pr[name] = value
-    return pr
-# 将class转dict,以_开头的也要
-def props_with_(obj):
-    pr = {}
-    for name in dir(obj):
-        value = getattr(obj, name)
-        if not name.startswith('__') and not callable(value):
-            pr[name] = value
-    return pr
-
-
-# dict转obj，先初始化一个obj
-def dict2obj(obj,dict):
-    obj.__dict__.update(dict)
-    return obj
-
-
-#获取usdt的买入/卖出价
-def getUsdtPrice():
-    trade_url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbol=usdt&legalCurrencySymbol=cny&best=0&exchangeRateLevel=0&paySupport=0"
-    r = requests.get(trade_url, headers=headers)
-    return json.loads(r.text)
-
-
-#获取btc和usdt的数量对比
-def getBtcVsUsdt():
-    trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=btc_usdt"
-    r = requests.get(trade_url, headers=headers)
-    return json.loads(r.text)
-
-def getBtcPrice():
-    trade_url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbol=btc&legalCurrencySymbol=cny&best=0&exchangeRateLevel=0&paySupport=0"
-    r = requests.get(trade_url, headers=headers)
-    return json.loads(r.text)
+@get('/coins')
+def api_get_coins():
+    #先获取usdt价格作为基准价格
+    fromType = "usdt"
+    fromPrice = getCoinPrice(fromType)
+    print("fromPrice", fromPrice)
+    # 获取fromType最低卖价
+    fromMinSalePrice = getMinSalePrice(fromPrice)
+    # 获取fromType最高买入价
+    fromMaxBuyPrice = getMaxBuyPrice(fromPrice)
+    yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "btc")
+    yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "eos")
+    yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "eth")
+    return (yield from CoinProfit.findAll(orderBy='createdTime desc', limit=(0, 10)))
 
 def getMaxBuyPrice(priceList):
     for i in priceList["data"]["buyTradingOrders"]:
@@ -120,3 +56,46 @@ def getMinSalePrice(priceList):
     for i in priceList["data"]["sellTradingOrders"]:
         minPrice = i['exchangeRate']
     return minPrice
+
+@asyncio.coroutine
+def getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, toType):
+    # 获取toType的法币交易价格
+    toPrice = getCoinPrice(toType)
+    # 获取btc最低卖价
+    toMinSalePrice = getMinSalePrice(toPrice)
+    # 获取btc最高买入价
+    toMaxBuyPrice = getMaxBuyPrice(toPrice)
+    fromVsTo = getFromVsTo(fromType, toType)
+    fromVsTo_buy = fromVsTo["ticker"]["buy"]
+    fromToProfit = 50000 * Decimal(toMaxBuyPrice) / Decimal(fromVsTo_buy) / Decimal(fromMinSalePrice) - 50000 - 100
+    toFromProfit = 50000 / Decimal(toMinSalePrice) * Decimal(fromVsTo_buy) * Decimal(fromMaxBuyPrice) - 50000 - 100
+    coinProfit = CoinProfit()
+    coinProfit.fromType = fromType
+    coinProfit.toType = toType
+    coinProfit.fromMaxBuyPrice = fromMaxBuyPrice
+    coinProfit.fromMinSalePrice = fromMinSalePrice
+    coinProfit.toMaxBuyPrice = toMaxBuyPrice
+    coinProfit.toMinSalePrice = toMinSalePrice
+    coinProfit.fromJson = json.dumps(fromPrice)
+    coinProfit.toJson = json.dumps(toPrice)
+    coinProfit.vsJson = json.dumps(fromVsTo)
+    coinProfit.buy = fromVsTo["ticker"]["buy"]
+    coinProfit.sell = fromVsTo["ticker"]["sell"]
+    coinProfit.lastVs = fromVsTo["ticker"]["last"]
+    coinProfit.fromToProfit = fromToProfit
+    coinProfit.toFromProfit = toFromProfit
+    coinProfit.createdTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print(coinProfit)
+    yield from CoinProfit.save(coinProfit)
+
+def getFromVsTo(fromType, toType):
+    # 获取btc和usdt的数量对比
+    trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=" + toType + "_" + fromType
+    r = requests.get(trade_url, headers=headers)
+    return json.loads(r.text)
+
+#根据币种类型获取币种价格
+def getCoinPrice(coinType):
+    trade_url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbol=" + coinType + "&legalCurrencySymbol=cny&best=0&exchangeRateLevel=0&paySupport=0"
+    r = requests.get(trade_url, headers=headers)
+    return json.loads(r.text)
