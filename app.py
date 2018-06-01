@@ -7,7 +7,7 @@ __author__ = 'Wang Huan'
 async web application.
 '''
 
-import logging; logging.basicConfig(level=logging.INFO,filename='stu.log')
+import logging; logging.basicConfig(level=logging.INFO)
 
 import asyncio
 import json
