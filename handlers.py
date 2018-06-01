@@ -32,7 +32,7 @@ def check_admin(request):
     if request.__user__ is None or not request.__user__.admin:
         raise APIPermissionError()
 
-@get('/coins')
+@get('/api/coins')
 def api_get_coins():
     #先获取usdt价格作为基准价格
     fromType = "usdt"
