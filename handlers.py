@@ -21,7 +21,7 @@ _COOKIE_KEY = configs.session.secret
 
 #全局的header
 headers = {
-    'authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJiZjk5YzNkMS02YWU3LTQ5ZDgtYTM5Yi01MTdkNjY5ZDJlYTRka1hhIiwidWlkIjoiM2xuNzNkSmxtNXJhQzZIK0RtWG9Rdz09Iiwic3ViIjoiMTg5KioqODQ5MCIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1MjczMTA0ODYsImV4cCI6MTUyNzkxNTI4NiwiaXNzIjoib2tjb2luIn0.pelyCGEJOl3X4qs0N6bl4W7gST5M4X95Aq-PogB5TNGUHgjUA2wEuI1sJ2NnH0p9Q-IatfyZp5ZkoTgalMaNpg',
+    'authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI2NWU5MzdhOS0yZTE4LTRmMzQtOTE0Yy00YjBlMjhjNTJkMTNGSFJQIiwidWlkIjoiM2xuNzNkSmxtNXJhQzZIK0RtWG9Rdz09Iiwic3ViIjoiMTg5KioqODQ5MCIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1Mjc5NDkzOTcsImV4cCI6MTUyODU1NDE5NywiaXNzIjoib2tjb2luIn0.pVoK81LZOKlJYC8mBiVlgudgeQ6IkuAsEMNciDJ4hckKqGlxuFYlNBYlz3Z7UIbcTvgRSqbGMCSgJUDob7yvug',
     'content-type': 'application/json',
     'cookie': '__cfduid=d268f871c1f8ddf6683c1293165f5ee831525785471; locale=zh_CN; _ga=GA1.2.1105539038.1525785471; first_ref=https://www.okex.com/account/login.htm; perm=85E2BB8DDAF5EC8B4DAB9C6429D20733; _gid=GA1.2.1414655093.1526568686; Hm_lvt_b4e1f9d04a77cfd5db302bc2bcc6fe45=1525785472,1526568686,1526644458; isLogin=1; product=btc_usdt; lp=/future/trade; Hm_lpvt_b4e1f9d04a77cfd5db302bc2bcc6fe45=1526649066; ref=https://www.okex.com/futureTrade/beforeFuture; _gat_gtag_UA_115738092_1=1',
     'referer': 'https://www.okex.com/fiat/c2c',
@@ -98,4 +98,5 @@ def getFromVsTo(fromType, toType):
 def getCoinPrice(coinType):
     trade_url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbol=" + coinType + "&legalCurrencySymbol=cny&best=0&exchangeRateLevel=0&paySupport=0"
     r = requests.get(trade_url, headers=headers)
+    print(r)
     return json.loads(r.text)
