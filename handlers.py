@@ -66,9 +66,12 @@ def getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, toType
     coinProfit.fromMinSalePrice = fromMinSalePrice
     coinProfit.toMaxBuyPrice = toMaxBuyPrice
     coinProfit.toMinSalePrice = toMinSalePrice
-    coinProfit.fromJson = json.dumps(fromPrice)
-    coinProfit.toJson = json.dumps(toPrice)
-    coinProfit.vsJson = json.dumps(fromVsTo)
+    #coinProfit.fromJson = json.dumps(fromPrice)
+    #coinProfit.toJson = json.dumps(toPrice)
+    #coinProfit.vsJson = json.dumps(fromVsTo)
+    coinProfit.fromJson = ''
+    coinProfit.toJson =''
+    coinProfit.vsJson = ''
     coinProfit.buy = fromVsTo["ticker"]["buy"]
     coinProfit.sell = fromVsTo["ticker"]["sell"]
     coinProfit.lastVs = fromVsTo["ticker"]["last"]
