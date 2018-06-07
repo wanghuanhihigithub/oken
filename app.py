@@ -13,6 +13,7 @@ import asyncio
 import json
 import time
 from datetime import datetime
+from tornado import web, ioloop
 from aiohttp import web
 
 from config import configs
@@ -20,7 +21,7 @@ import orm
 from coroweb import add_routes, add_static
 
 from handlers import COOKIE_NAME
-
+from handlers import fun_timer
 
 @asyncio.coroutine
 def logger_factory(app, handler):
@@ -120,7 +121,6 @@ def datetime_filter(t):
     dt = datetime.fromtimestamp(t)
     return u'%s年%s月%s日' % (dt.year, dt.month, dt.day)
 
-
 @asyncio.coroutine
 def init(loop):
     yield from orm.create_pool(loop=loop, **configs.db)
@@ -133,7 +133,11 @@ def init(loop):
     logging.info('server started at http://127.0.0.1:9000...')
     return srv
 
-
 loop = asyncio.get_event_loop()
 loop.run_until_complete(init(loop))
 loop.run_forever()
+
+ioloop.PeriodicCallback(fun_timer, 1000).start()  # start scheduler 每隔2s执行一次f2s
+ioloop.IOLoop.instance().start()
+
+

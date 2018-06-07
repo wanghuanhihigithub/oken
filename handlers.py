@@ -14,6 +14,7 @@ import json
 
 from decimal import Decimal
 from datetime import datetime
+import logging; logging.basicConfig(level=logging.INFO)
 import asyncio
 
 COOKIE_NAME = 'awesession'
@@ -34,17 +35,6 @@ def check_admin(request):
 
 @get('/api/coins')
 def api_get_coins():
-    #先获取usdt价格作为基准价格
-    fromType = "usdt"
-    fromPrice = getCoinPrice(fromType)
-    print("fromPrice", fromPrice)
-    # 获取fromType最低卖价
-    fromMinSalePrice = getMinSalePrice(fromPrice)
-    # 获取fromType最高买入价
-    fromMaxBuyPrice = getMaxBuyPrice(fromPrice)
-    yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "btc")
-    yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "eos")
-    yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "eth")
     return (yield from CoinProfit.findAll(orderBy='createdTime desc', limit=(0, 10)))
 
 def getMaxBuyPrice(priceList):
@@ -92,11 +82,32 @@ def getFromVsTo(fromType, toType):
     # 获取btc和usdt的数量对比
     trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=" + toType + "_" + fromType
     r = requests.get(trade_url, headers=headers)
+    if (r.status_code != 200):
+        logging.info('请求oken网数据异常', r.text)
     return json.loads(r.text)
 
 #根据币种类型获取币种价格
 def getCoinPrice(coinType):
     trade_url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbol=" + coinType + "&legalCurrencySymbol=cny&best=0&exchangeRateLevel=0&paySupport=0"
     r = requests.get(trade_url, headers=headers)
-    print(r)
+    if(r.status_code != 200):
+        logging.info('请求oken网数据异常', r.text)
     return json.loads(r.text)
+
+@asyncio.coroutine
+def fun_timer():
+    print(datetime.now(),'Hello Timer!')
+    # 先获取usdt价格作为基准价格
+    fromType = "usdt"
+    fromPrice = getCoinPrice(fromType)
+    print(fromPrice)
+    # 获取fromType最低卖价
+    fromMinSalePrice = getMinSalePrice(fromPrice)
+    # 获取fromType最高买入价
+    fromMaxBuyPrice = getMaxBuyPrice(fromPrice)
+    yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "btc")
+    yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "eos")
+    yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "eth")
+    #global timer
+    #timer = threading.Timer(2, fun_timer)
+    #timer.start()
