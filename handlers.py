@@ -16,6 +16,7 @@ from decimal import Decimal
 from datetime import datetime
 import logging; logging.basicConfig(level=logging.INFO)
 import asyncio
+from apis import Page, APIValueError, APIResourceNotFoundError
 
 COOKIE_NAME = 'awesession'
 _COOKIE_KEY = configs.session.secret
@@ -36,6 +37,32 @@ def check_admin(request):
 @get('/api/coins')
 def api_get_coins():
     return (yield from CoinProfit.findAll(orderBy='createdTime desc', limit=(0, 10)))
+
+def get_page_index(page_str):
+    p = 1
+    try:
+        p = int(page_str)
+    except ValueError as e:
+        pass
+    if p < 1:
+        p = 1
+    return p
+
+@get('/api/coins/params')
+def api_get_coins_by_params(*, page='1',createdTimeStart='',createdTimeEnd=''):
+
+    page_index = get_page_index(page)
+    num = yield from CoinProfit.findNumber('count(id)')
+    page = Page(num, page_index)
+    if num == 0:
+       coins = []
+    else:
+       where = 'createdTime>\'' + createdTimeStart + '\' and createdTime<\'' + createdTimeEnd + "\'"
+       coins = yield from CoinProfit.findAll(where=where, orderBy='createdTime desc', limit=(page.offset, page.limit))
+    return {
+        'page': page,
+        'coins': coins
+    }
 
 def getMaxBuyPrice(priceList):
     for i in priceList["data"]["buyTradingOrders"]:
