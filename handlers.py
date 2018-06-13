@@ -163,8 +163,8 @@ def fun_timer():
 def sendSms(coinProfit):
 
     #如果利润为0 不发送短信
-    #if((coinProfit.fromToProfit < 0) & (coinProfit.toFromProfit < 0)):
-     #   return
+    if((coinProfit.fromToProfit < 0) & (coinProfit.toFromProfit < 0)):
+        return
     #如果不允许发送短信返回
     setting = yield from SysSetting.find("1")
     if(setting.enableSms != 1):
