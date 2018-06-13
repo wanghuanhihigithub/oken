@@ -15,50 +15,18 @@ def next_id():
     return '%015d%s000' % (int(time.time() * 1000), uuid.uuid4().hex)
 
 #usdt详情类
-class Usdt(Model):
-    __table__ = 'usdt'
+class SysSetting(Model):
+    __table__ = 'sys_setting'
 
-    acceptOrder = BooleanField()
-    # 数量
-    availableAmount = FloatField()
-    availableFromTime = StringField(ddl='varchar(20)')
-    availableToTime = StringField(ddl='varchar(20)')
-    best = IntegerField()
-    blacker = BooleanField()
-    canPlaceOrder = BooleanField()
-    clientAvgCompletedTime = StringField(ddl='varchar(20)')
-    clientAvgPaidTime = StringField(ddl='varchar(20)')
-    clientCancelledOrderQuantity = IntegerField()
-    clientCompletedOrderQuantity = IntegerField()
-    clientCompletionSecondsAvg = StringField(ddl='varchar(20)')
-    clientId = IntegerField()
-    clientKycLevel = StringField(ddl='varchar(20)')
-    # 委托人
-    clientName = StringField(ddl='varchar(50)')
-    clientPaymentSecondsAvg = StringField(ddl='varchar(20)')
-    completedAmount = FloatField()
-    completedOrderQuantity = IntegerField()
-    # 所有金额
-    completedOrderTotal = FloatField()
-    createdDate = IntegerField()
-    digitalCurrencySymbol = StringField(ddl='varchar(20)')
-    # 价格
-    exchangeRate = FloatField()
-    exchangeRateDeviateTooFar = BooleanField()
-    existPhone = BooleanField()
-    floatRate = IntegerField()
-    frozenAmount = IntegerField()
-    index = IntegerField()
-    # isBuy为false表示是卖出的单子 true表示是买入的订单
-    isBuy = BooleanField()
-    legalCurrencySymbol = StringField(ddl='varchar(20)')
-    #单笔限额-高
-    maxPlacePrice = IntegerField()
-    minKycLevel = IntegerField()
-    #单笔限额-低
-    minPlacePrice = FloatField()
-    publicTradingOrderId = IntegerField(primary_key=True)
-    type = IntegerField()
+    id = StringField(primary_key=True, default=next_id, ddl='varchar(50)')
+    enableSms = BooleanField()
+    smsSendInterval = IntegerField()
+    smsReceiver = StringField(ddl='varchar(100)')
+
+class SmsLog(Model):
+    __table__ = 'sms_log'
+    id = StringField(primary_key=True, default=next_id, ddl='varchar(50)')
+    lastSendTime = StringField(ddl='varchar(100)')
 
 class CoinProfit(Model):
     __table__ = 'coin'

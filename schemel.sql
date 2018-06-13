@@ -26,3 +26,17 @@ create table coinProfit (
     `toFromProfit` real not null,
     `createdTime` varchar(100) not null
 ) engine=innodb default charset=utf8;
+
+
+
+create table sys_setting (
+    `id` varchar(50) not null,
+    `enableSms` real not null,
+    `smsSendInterval` int not null,
+    `smsReceiver` varchar(200) not null
+) engine=innodb default charset=utf8;
+
+create table sms_log (
+    `id` varchar(50) not null,
+    `lastSendTime` varchar(100) not null
+) engine=innodb default charset=utf8;

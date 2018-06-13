@@ -250,7 +250,9 @@ class Model(dict, metaclass=ModelMetaclass):
     def update(self):
         args = list(map(self.getValue, self.__fields__))
         args.append(self.getValue(self.__primary_key__))
+        print(args)
         rows = yield from execute(self.__update__, args)
+        print("rows===", rows)
         if rows != 1:
             logging.warn('failed to update by primary key: affected rows: %s' % rows)
 

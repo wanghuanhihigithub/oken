@@ -5,11 +5,20 @@ from handlers import fun_timer
 import orm
 
 from config import configs
-
+import logging; logging.basicConfig(level=logging.INFO,filename='stu.log')
 
 class MainHandler(web.RequestHandler):
     def get(self):
         self.write('Hello Tornado')
+
+@asyncio.coroutine
+def logger_factory(app, handler):
+    @asyncio.coroutine
+    def logger(request):
+        logging.info('Request: %s %s' % (request.method, request.path))
+        # yield from asyncio.sleep(0.3)
+        return (yield from handler(request))
+    return logger
 
 @asyncio.coroutine
 def f2s():
@@ -25,6 +34,6 @@ if __name__ == '__main__':
     application = web.Application([
         (r'/', MainHandler),
     ])
-    application.listen(8081)
-    ioloop.PeriodicCallback(fun_timer, 1000).start()  # start scheduler 每隔2s执行一次f2s
+    application.listen(9003)
+    ioloop.PeriodicCallback(fun_timer, 4000).start()  # start scheduler 每隔2s执行一次f2s
     ioloop.IOLoop.instance().start()
