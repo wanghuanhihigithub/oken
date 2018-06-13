@@ -195,3 +195,4 @@ def sendSms(coinProfit):
     with request.urlopen(req) as f:
         if(f.status == 200):
             smsLog.lastSendTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            yield from smsLog.update()
