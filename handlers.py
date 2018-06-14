@@ -176,7 +176,7 @@ def sendSms(coinProfit):
     #如果是在已经发送的时间范围内
     smsLog = yield from SmsLog.find("1")
     if(smsLog.lastSendTime != ""):
-        if(datetime.now().time() - datetime.strptime(smsLog.lastSendTime,'%Y-%m-%d %H:%M:%S' )< setting.smsSendInterval * 60 * 1000):
+        if((datetime.now() - datetime.strptime("2018-06-14 15:12:12", "%Y-%m-%d %H:%M:%S")).seconds / 60 < setting.smsSendInterval):
             return
 
     host = 'https://fesms.market.alicloudapi.com'
