@@ -79,14 +79,12 @@ def api_get_coins_by_params(*, page='1',createdTimeStart='',createdTimeEnd=''):
     }
 
 def getMaxBuyPrice(priceList):
-    for i in priceList["data"]["buyTradingOrders"]:
-        return i['exchangeRate']
+    buyTradingOrders = priceList["data"]["buyTradingOrders"]
+    return buyTradingOrders[1]["exchangeRate"]
 
 def getMinSalePrice(priceList):
-    minPrice = 0
-    for i in priceList["data"]["sellTradingOrders"]:
-        minPrice = i['exchangeRate']
-    return minPrice
+    sellTradingOrders = priceList["data"]["sellTradingOrders"]
+    return sellTradingOrders[len(sellTradingOrders) - 2]["exchangeRate"]
 
 @asyncio.coroutine
 def getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, toType):
