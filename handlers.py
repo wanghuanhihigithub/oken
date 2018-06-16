@@ -117,7 +117,6 @@ def getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, toType
     coinProfit.fromToProfit = Decimal(fromToProfit).quantize(Decimal('0.00'))
     coinProfit.toFromProfit = Decimal(toFromProfit).quantize(Decimal('0.00'))
     coinProfit.createdTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(coinProfit)
     yield from sendSms(coinProfit)
     yield from CoinProfit.save(coinProfit)
 
@@ -141,11 +140,9 @@ def getCoinPrice(coinType):
 
 @asyncio.coroutine
 def fun_timer():
-    print(datetime.now(),'Hello Timer!')
     # 先获取usdt价格作为基准价格
     fromType = "usdt"
     fromPrice = getCoinPrice(fromType)
-    print(fromPrice)
     # 获取fromType最低卖价
     fromMinSalePrice = getMinSalePrice(fromPrice)
     # 获取fromType最高买入价
@@ -153,9 +150,7 @@ def fun_timer():
     yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "btc")
     yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "eos")
     yield from getCoinProfit(fromPrice, fromType, fromMinSalePrice, fromMaxBuyPrice, "eth")
-    #global timer
-    #timer = threading.Timer(2, fun_timer)
-    #timer.start()
+    
 
 @asyncio.coroutine
 def sendSms(coinProfit):
