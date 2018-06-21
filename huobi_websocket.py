@@ -183,7 +183,6 @@ def main():
             time.sleep(1)
 
 if __name__ == "__main__":
-    main()
     websocket.enableTrace(True)
     ws = websocket.WebSocketApp(
         "wss://api.huobi.pro/ws",
@@ -193,3 +192,4 @@ if __name__ == "__main__":
         on_close=on_close
     )
     ws.run_forever()
+    main()
