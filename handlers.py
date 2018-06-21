@@ -132,6 +132,7 @@ def getFromVsTo(fromType, toType):
     r = requests.get(trade_url, headers=headers)
     if (r.status_code != 200):
         print('请求oken网数据异常', r.text)
+    print(r.text,"======", datetime.now())
     return json.loads(r.text)
 
 #根据币种类型获取币种价格
