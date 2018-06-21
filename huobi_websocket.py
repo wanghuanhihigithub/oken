@@ -62,7 +62,6 @@ def on_open(ws):
 
     t = threading.Thread(target=run, args=())
     t.start()
-    main()
 
 class returnCrossDomain(Thread):
     def __init__(self, connection):
@@ -184,6 +183,7 @@ def main():
             time.sleep(1)
 
 if __name__ == "__main__":
+    main()
     websocket.enableTrace(True)
     ws = websocket.WebSocketApp(
         "wss://api.huobi.pro/ws",
