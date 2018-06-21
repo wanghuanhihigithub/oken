@@ -96,10 +96,10 @@ class returnCrossDomain(Thread):
                 # clientData = self.readClientData()
                 # print('客户端数据：' + clientData)
                 # 向客户端发送数据
-                print(new)
-                self.sendDataToClient("Happy")
-                #if(change):
-                  #  self.sendDataToClient(new)
+                print("new", new)
+                print("change", change)
+                if(change):
+                    self.sendDataToClient(new)
 
     def analyzeReq(self):
         reqData = self.con.recv(1024).decode()
@@ -184,7 +184,7 @@ def main():
             time.sleep(1)
 
 if __name__ == "__main__":
-    main()
+   
     websocket.enableTrace(True)
     ws = websocket.WebSocketApp(
         "wss://api.huobi.pro/ws",
@@ -194,3 +194,4 @@ if __name__ == "__main__":
         on_close=on_close
     )
     ws.run_forever()
+    main()
