@@ -39,6 +39,11 @@ def check_admin(request):
 def api_get_coins():
     return (yield from CoinProfit.findAll(orderBy='createdTime desc', limit=(0, 10)))
 
+@get("/api/coinsVs")
+def api_getCoinsVs():
+    return getFromVsTo("usdt","btc")
+
+
 @post('/api/setting/{id}')
 def api_update_setting(id, request, *, enableSms, smsSendInterval, smsReceiver):
     setting = yield from SysSetting.find(id)
