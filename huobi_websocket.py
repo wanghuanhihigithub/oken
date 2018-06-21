@@ -20,9 +20,9 @@ def on_message(ws, message):
     msg_dict = json.loads(unzipped_data)
     print("Recieved Message: ", datetime.now())
     data = msg_dict["data"]
-    data["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    #data["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(data[len(data) - 1])
-    yield from HuoBi.save(data)
+    HuoBi.save(data)
     if 'ping' in msg_dict:
         data = {
             "pong": msg_dict['ping']
