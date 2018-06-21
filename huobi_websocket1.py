@@ -29,8 +29,7 @@ def on_message(ws, message):
     data = msg_dict["data"]
     new = data[len(data) - 1]
     new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    change = True
-    print(change)
+    print(new)
     if 'ping' in msg_dict:
         data = {
             "pong": msg_dict['ping']
