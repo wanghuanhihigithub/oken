@@ -87,18 +87,11 @@ class returnCrossDomain(Thread):
                 print('response:\r\n' + response)
                 # 握手阶段结束
             else:
-                # 接受客户端数据
-                # opcode = self.getOpcode()
-                # if opcode == 8:
-                #    self.con.close()
-                # self.getDataLength()
-                # clientData = self.readClientData()
-                # print('客户端数据：' + clientData)
-                # 向客户端发送数据
                 print("new", new)
                 print("change", change)
+                self.sendDataToClient("1111")
                 if(change):
-                    self.sendDataToClient("1111" + new)
+                    self.sendDataToClient(new)
 
     def analyzeReq(self):
         reqData = self.con.recv(1024).decode()
