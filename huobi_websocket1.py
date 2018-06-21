@@ -26,7 +26,7 @@ def on_message(ws, message):
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
     print("Recieved Message: ", datetime.now(),"====", type(msg_dict))
-    if(msg_dict.has_key("data")):
+    if("data" in msg_dict):
         data = msg_dict["data"]
         new = data[len(data) - 1]
         new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
