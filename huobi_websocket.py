@@ -99,7 +99,7 @@ class returnCrossDomain(Thread):
                 print("new", new)
                 print("change", change)
                 if(change):
-                    self.sendDataToClient(new)
+                    self.sendDataToClient("1111" + new)
 
     def analyzeReq(self):
         reqData = self.con.recv(1024).decode()
