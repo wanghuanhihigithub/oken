@@ -26,15 +26,16 @@ def on_message(ws, message):
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
     print("Recieved Message: ", datetime.now())
-    data = msg_dict["data"]
-    new = data[len(data) - 1]
-    new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(new)
-    if 'ping' in msg_dict:
-        data = {
-            "pong": msg_dict['ping']
-        }
-        send_message(ws, data)
+    if(msg_dict.has_key("data")):
+        data = msg_dict["data"]
+        new = data[len(data) - 1]
+        new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        print(new)
+        if 'ping' in msg_dict:
+            data = {
+                "pong": msg_dict['ping']
+            }
+            send_message(ws, data)
 
 
 def on_error(ws, error):
