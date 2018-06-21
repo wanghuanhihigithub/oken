@@ -5,6 +5,7 @@ import threading
 import time
 import websocket
 from datetime import datetime
+from models import HuoBi
 
 
 def send_message(ws, message_dict):
@@ -19,7 +20,9 @@ def on_message(ws, message):
     msg_dict = json.loads(unzipped_data)
     print("Recieved Message: ", datetime.now())
     data = msg_dict["data"]
+    data["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(data[len(data) - 1])
+    yield from HuoBi.save(data)
     if 'ping' in msg_dict:
         data = {
             "pong": msg_dict['ping']
@@ -52,7 +55,6 @@ def on_open(ws):
 
     t = threading.Thread(target=run, args=())
     t.start()
-
 
 if __name__ == "__main__":
     # websocket.enableTrace(True)

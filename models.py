@@ -28,6 +28,19 @@ class SmsLog(Model):
     id = StringField(primary_key=True, default=next_id, ddl='varchar(50)')
     lastSendTime = StringField(ddl='varchar(100)')
 
+class HuoBi(Model):
+    __table__ = 'huo_bi'
+
+    id = StringField(primary_key=True, ddl='varchar(50)')
+    open = FloatField()
+    close = FloatField
+    low = FloatField()
+    high = FloatField()
+    amount = FloatField()
+    vol = FloatField()
+    count = FloatField()
+    createdTime = StringField(ddl='varchar(100)')
+
 class CoinProfit(Model):
     __table__ = 'coin'
 

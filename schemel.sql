@@ -40,3 +40,14 @@ create table sms_log (
     `id` varchar(50) not null,
     `lastSendTime` varchar(100) not null
 ) engine=innodb default charset=utf8;
+
+create table huo_bi (
+    `id` varchar(50) not null,
+    `open` real not null,
+    `close` real not null,
+    `low` real not null,
+    `high` real not null,
+    `amount` real not null,
+    `count` real not null,
+    `createdTime` varchar(100) not null
+) engine=innodb default charset=utf8;
