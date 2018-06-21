@@ -27,7 +27,6 @@ def on_message(ws, message):
     msg_dict = json.loads(unzipped_data)
     print("Recieved Message: ", datetime.now())
     data = msg_dict["data"]
-    print(data)
     new = data[len(data) - 1]
     new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(new)
