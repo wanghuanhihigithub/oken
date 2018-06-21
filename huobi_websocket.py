@@ -15,7 +15,6 @@ def send_message(ws, message_dict):
     print(message_dict)
     ws.send(data)
 
-@asyncio.coroutine
 def on_message(ws, message):
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
@@ -24,7 +23,7 @@ def on_message(ws, message):
     new = data[len(data) - 1]
     new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(new)
-    yield from HuoBi.save(data)
+    HuoBi.save(data)
     if 'ping' in msg_dict:
         data = {
             "pong": msg_dict['ping']
