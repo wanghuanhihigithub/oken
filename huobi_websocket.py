@@ -18,7 +18,7 @@ def on_message(ws, message):
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
     print("Recieved Message: ", datetime.now())
-    print(msg_dict)
+    print(type(msg_dict))
     if 'ping' in msg_dict:
         data = {
             "pong": msg_dict['ping']
