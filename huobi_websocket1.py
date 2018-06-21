@@ -25,7 +25,7 @@ def send_message(ws, message_dict):
 def on_message(ws, message):
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
-    print("Recieved Message: ", datetime.now())
+    print("Recieved Message: ", datetime.now(),"====", type(msg_dict))
     if(msg_dict.has_key("data")):
         data = msg_dict["data"]
         new = data[len(data) - 1]
