@@ -18,8 +18,7 @@ change = False
 
 def send_message(ws, message_dict):
     data = json.dumps(message_dict).encode()
-    print("Sending Message:")
-    print(message_dict)
+    print("Sending Message:", message_dict)
     ws.send(data)
 
 def on_message(ws, message):
@@ -63,6 +62,7 @@ def on_open(ws):
 
     t = threading.Thread(target=run, args=())
     t.start()
+    main()
 
 class returnCrossDomain(Thread):
     def __init__(self, connection):
@@ -193,4 +193,3 @@ if __name__ == "__main__":
         on_close=on_close
     )
     ws.run_forever()
-    main()
