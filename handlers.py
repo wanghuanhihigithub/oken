@@ -18,6 +18,7 @@ import logging; logging.basicConfig(level=logging.INFO)
 import asyncio
 from apis import Page
 from urllib import request
+import redis
 
 COOKIE_NAME = 'awesession'
 _COOKIE_KEY = configs.session.secret
@@ -42,6 +43,12 @@ def api_get_coins():
 @get("/api/coinsVs")
 def api_getCoinsVs():
     return getFromVsTo("usdt","btc")
+
+@get("/api/huobiCoinsVs")
+def api_getCoinsVs():
+    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+    return conn.get("usdt-btc")
+
 
 
 @post('/api/setting/{id}')
