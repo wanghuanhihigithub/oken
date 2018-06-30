@@ -12,11 +12,22 @@ from coroweb import get
 import logging; logging.basicConfig(level=logging.INFO)
 
 import redis
+import requests
+import json
+import datetime
+from datetime import datetime
 
 @get("/api/coinsVs")
 def api_getCoinsVs():
-    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    return conn.get("oken-usdt-btc")
+   return getFromVsTo()
+
+def getFromVsTo():
+    trade_url = "https://www.okex.com/v2/futures/market/indexTicker?symbol=f_usd_btc"
+    r = requests.get(trade_url)
+    if (r.status_code == 200):
+        text = json.loads(r.text)
+        text["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        return text
 
 @get("/api/huobiCoinsVs")
 def api_getHuobiCoinsVs():
