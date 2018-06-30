@@ -7,7 +7,7 @@ __author__ = 'Michael Liao'
 async web application.
 '''
 
-import logging; logging.basicConfig(level=logging.INFO)
+import logging; logging.basicConfig(level=logging.ERROR)
 
 import asyncio, json
 
@@ -82,13 +82,17 @@ def response_factory(app, handler):
 
 @asyncio.coroutine
 def init(loop):
-    app = web.Application(loop=loop, middlewares=[
+    try:
+        app = web.Application(loop=loop, middlewares=[
         logger_factory, response_factory
-    ])
-    add_routes(app, 'handlers')
-    srv = yield from loop.create_server(app.make_handler(), '127.0.0.1', 9000)
-    logging.info('server started at http://127.0.0.1:9000...')
-    return srv
+        ])
+        add_routes(app, 'handlers')
+        srv = yield from loop.create_server(app.make_handler(), '127.0.0.1', 9000)
+        logging.info('server started at http://127.0.0.1:9000...')
+        return srv
+    except Exception as e:
+        logging.ERROR(e)
+
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(init(loop))

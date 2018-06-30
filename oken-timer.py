@@ -1,24 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-
-
-__author__ = 'Wang Huan'
-
-' url handlers '
-
-from coroweb import get
-
 import requests
 import json
-
 from datetime import datetime
-import logging; logging.basicConfig(level=logging.INFO)
-
 import redis
 
-
-#全局的header
 headers = {
     'authorization': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMDA1OTIzZi05ODVmLTQyMDItYjNjYi1mMzA5ZjcxZWYxNjlXeUt4IiwidWlkIjoiM2xuNzNkSmxtNXJhQzZIK0RtWG9Rdz09Iiwic3ViIjoiMTg5KioqODQ5MCIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1MzAzMjY4NTMsImV4cCI6MTUzMDkzMTY1MywiYmlkIjowLCJpc3MiOiJva2NvaW4ifQ.lj-YqBqo6R8sfGzaYQ0n5GINdAh7gHX-h_q9959PMHfBWCIhsuvD_z48X3PCha6gPYu-E1Q4-CLEFSYXy__49A',
     'content-type': 'application/json',
@@ -27,13 +11,17 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36'
 }
 
-@get("/api/coinsVs")
-def api_getCoinsVs():
-    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    return conn.get("oken-usdt-btc")
+def getFromVsTo(fromType, toType):
+    # 获取btc和usdt的数量对比
+    trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=" + toType + "_" + fromType
+    r = requests.get(trade_url, headers=headers)
+    if (r.status_code != 200):
+        print('请求oken网数据异常', r.text)
+    print(r.text,"======", datetime.now())
+    return json.loads(r.text)
 
-@get("/api/huobiCoinsVs")
-def api_getHuobiCoinsVs():
-    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    return conn.get("usdt-btc")
-
+#主程序
+if __name__ == "__main__":
+    while True:
+        conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+        conn.set('oken-usdt-btc', getFromVsTo("usdt", "btc"))
