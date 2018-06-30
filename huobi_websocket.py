@@ -12,8 +12,6 @@ change = False
 
 def send_message(ws, message_dict):
     data = json.dumps(message_dict).encode()
-    print("Sending Message:")
-    print(message_dict)
     ws.send(data)
 
 def on_message(ws, message):
