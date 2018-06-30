@@ -9,12 +9,10 @@ from datetime import datetime
 def api_getCoinsVs():
    return getFromVsTo()
 
-'''
 @route("/api/huobiCoinsVs")
 def api_getHuobiCoinsVs():
     conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
     return conn.get("usdt-btc")
-'''
 
 def getFromVsTo():
     now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -27,7 +25,7 @@ def getFromVsTo():
         text = json.loads(r.text)
         now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         text["createdTime"] = now
-        conn.set(now, text)
+        #conn.set(now, text)
         return text
 
 run(host='localhost', port=9000)
