@@ -7,27 +7,27 @@ from datetime import datetime
 import redis
 import time
 
-pool = redis.ConnectionPool(host="192.168.16.70", port=6379, db=0)
-r = redis.Redis(connection_pool=pool)
-
-pipe = r.pipeline(transaction=True)
+def create_pool():
+    pool = redis.ConnectionPool(host="192.168.16.70", port=6379, db=0)
+    global __redis
+    __redis = redis.Redis(connection_pool=pool)
+    global __pipe
+    __pipe = __redis.pipeline(transaction=True)
 
 def send_message(ws, message_dict):
     data = json.dumps(message_dict).encode()
     ws.send(data)
 
 def on_message(ws, message):
-
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
     if("data" in msg_dict):
         data = msg_dict["data"]
         new = data[len(data) - 1]
         new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        #conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
         #conn.set('usdt-btc', new)
-        r.set('new',new)
-        pipe.execute()
+        __redis.set('new',new)
+        __pipe.execute()
         if 'ping' in msg_dict:
             data = {
                 "pong": msg_dict['ping']
@@ -72,6 +72,7 @@ def on_open(ws):
 
 #主程序
 if __name__ == "__main__":
+    create_pool()
     websocket.enableTrace(True)
     ws = websocket.WebSocketApp(
         "wss://api.huobi.pro/ws",
