@@ -21,6 +21,7 @@ def on_message(ws, message):
     if("data" in msg_dict):
         data = msg_dict["data"]
         new = data[len(data) - 1]
+        print("Recieved Message: ", datetime.now(), "====", new)
         new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
         conn.set('usdt-btc', new)
