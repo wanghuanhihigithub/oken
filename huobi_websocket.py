@@ -7,23 +7,27 @@ from datetime import datetime
 import redis
 import time
 
-new = ""
-change = False
+pool = redis.ConnectionPool(host="192.168.16.70", port=6379, db=0)
+r = redis.Redis(connection_pool=pool)
+
+pipe = r.pipeline(transaction=True)
 
 def send_message(ws, message_dict):
     data = json.dumps(message_dict).encode()
     ws.send(data)
 
 def on_message(ws, message):
+
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
     if("data" in msg_dict):
         data = msg_dict["data"]
         new = data[len(data) - 1]
-        print("Recieved Message: ", datetime.now(), "====", new)
         new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-        conn.set('usdt-btc', new)
+        #conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+        #conn.set('usdt-btc', new)
+        r.set('new',new)
+        pipe.execute()
         if 'ping' in msg_dict:
             data = {
                 "pong": msg_dict['ping']
@@ -39,6 +43,15 @@ def on_error(ws, error):
 
 def on_close(ws):
     print("### closed ###")
+    websocket.enableTrace(True)
+    ws = websocket.WebSocketApp(
+        "wss://api.huobi.pro/ws",
+        on_open=on_open,
+        on_message=on_message,
+        on_error=on_error,
+        on_close=on_close
+    )
+    ws.run_forever()
 
 
 def on_open(ws):
