@@ -20,7 +20,7 @@ def getFromVsTo(fromType, toType):
     print(r.text,"======", datetime.now())
     return json.loads(r.text)
 
-#主程序
+#主程序 ii
 if __name__ == "__main__":
     while True:
         conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
