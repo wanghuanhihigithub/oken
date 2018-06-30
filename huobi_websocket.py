@@ -68,6 +68,7 @@ def on_open(ws):
     t = threading.Thread(target=run, args=())
     t.start()
 
+#主程序
 if __name__ == "__main__":
     websocket.enableTrace(True)
     ws = websocket.WebSocketApp(
