@@ -1,6 +1,8 @@
+from apscheduler.schedulers.blocking import BlockingScheduler
+from datetime import datetime
+import os
 import requests
 import json
-from datetime import datetime
 import redis
 
 headers = {
@@ -12,16 +14,23 @@ headers = {
 }
 
 def getFromVsTo(fromType, toType):
-    # 获取btc和usdt的数量对比
     trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=" + toType + "_" + fromType
     r = requests.get(trade_url, headers=headers)
     if (r.status_code != 200):
         print('请求oken网数据异常', r.text)
-    print(r.text,"======", datetime.now())
-    return json.loads(r.text)
+    text = json.loads(r.text)
+    text["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print(text, "===", datetime.now())
+    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+    conn.set('oken-usdt-btc', text)
 
-#主程序 ii
+
+#主程序
 if __name__ == "__main__":
-    while True:
-        conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-        conn.set('oken-usdt-btc', getFromVsTo("usdt", "btc"))
+    scheduler = BlockingScheduler()
+    scheduler.add_job(getFromVsTo("usdt","btc"), 'cron', second='*/3', hour='*')
+    print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
+    try:
+        scheduler.start()
+    except Exception:
+        scheduler.shutdown()
