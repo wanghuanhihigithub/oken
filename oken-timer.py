@@ -29,7 +29,7 @@ def getFromVsTo():
 #主程序
 if __name__ == "__main__":
     scheduler = BlockingScheduler()
-    scheduler.add_job(getFromVsTo(), 'cron', second='*/3', hour='*')
+    scheduler.add_job(getFromVsTo(), 'interval', seconds=1)
     print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
     try:
         scheduler.start()
