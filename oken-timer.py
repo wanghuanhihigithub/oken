@@ -13,8 +13,8 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36'
 }
 
-def getFromVsTo(fromType, toType):
-    trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=" + toType + "_" + fromType
+def getFromVsTo():
+    trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=" + "usdt" + "_" + "btc"
     r = requests.get(trade_url, headers=headers)
     if (r.status_code != 200):
         print('请求oken网数据异常', r.text)
@@ -29,7 +29,7 @@ def getFromVsTo(fromType, toType):
 #主程序
 if __name__ == "__main__":
     scheduler = BlockingScheduler()
-    scheduler.add_job(getFromVsTo("usdt","btc"), 'cron', second='*/3', hour='*')
+    scheduler.add_job(getFromVsTo(), 'cron', second='*/3', hour='*')
     print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
     try:
         scheduler.start()
