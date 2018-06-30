@@ -22,7 +22,10 @@ def logger_factory(app, handler):
     def logger(request):
         logging.info('Request: %s %s' % (request.method, request.path))
         # yield from asyncio.sleep(0.3)
-        return (yield from handler(request))
+        try:
+            return (yield from handler(request))
+        except Exception:
+            print(111)
     return logger
 
 @asyncio.coroutine
