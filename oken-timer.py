@@ -18,8 +18,8 @@ headers = {
 
 @scheduler.scheduled_job('interval', seconds=1)
 def getFromVsTo():
-    trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=" + "usdt" + "_" + "btc"
-    r = requests.get(trade_url, headers=headers)
+    trade_url = "https://www.okex.com/v2/futures/market/indexTicker?symbol=f_usd_btc"
+    r = requests.get(trade_url)
     if (r.status_code == 200):
         text = json.loads(r.text)
         if(("error_code" in text) == False):
