@@ -23,6 +23,7 @@ def getFromVsTo(fromType, toType):
     print(text, "===", datetime.now())
     conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
     conn.set('oken-usdt-btc', text)
+    return "123"
 
 
 #主程序
@@ -32,5 +33,5 @@ if __name__ == "__main__":
     print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
     try:
         scheduler.start()
-    except Exception:
+    except (KeyboardInterrupt,SystemExit):
         scheduler.shutdown()
