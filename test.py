@@ -15,7 +15,7 @@ def getFromVsTo():
     #if(conn.exists(now)):
        #return conn.get(now)
     trade_url = "https://www.okex.com/v2/futures/market/indexTicker?symbol=f_usd_btc"
-    r = requests.get(trade_url)
+    r = requests.get(trade_url,timeout=3)
     if (r.status_code == 200):
         text = json.loads(r.text)
         now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
