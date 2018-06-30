@@ -15,11 +15,11 @@ def api_getHuobiCoinsVs():
     return conn.get("usdt-btc")
 
 def getFromVsTo():
-    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    if(conn.exists(now)):
-       return conn.get(now)
-    trade_url = "https://www.okex.com/v2/futures/market/indexTicker?symbol=f_usd_btc"
+    #now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    #conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+    #if(conn.exists(now)):
+      # return conn.get(now)
+    trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=btc_usdt"
     r = requests.get(trade_url,timeout=2)
     if (r.status_code == 200):
         text = json.loads(r.text)
