@@ -8,7 +8,7 @@ import redis
 import time
 
 def create_pool():
-    pool = redis.ConnectionPool(host="192.168.16.70", port=6379, db=0)
+    pool = redis.ConnectionPool(host="127.0.0.1", port=6379, db=0)
     global __redis
     __redis = redis.Redis(connection_pool=pool)
     global __pipe
