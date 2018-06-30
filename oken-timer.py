@@ -13,25 +13,25 @@ headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36'
 }
 
+scheduler = BlockingScheduler()
+
+@scheduler.scheduled_job('interval', seconds=1)
 def getFromVsTo():
     trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=" + "usdt" + "_" + "btc"
     r = requests.get(trade_url, headers=headers)
-    if (r.status_code != 200):
-        print('请求oken网数据异常', r.text)
-    text = json.loads(r.text)
-    text["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(text, "===", datetime.now())
-    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    conn.set('oken-usdt-btc', text)
-    return "123"
+    if (r.status_code == 200):
+        text = json.loads(r.text)
+        if(("error_code" in text) == False):
+            text["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            print(text, "===", datetime.now())
+            conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+            conn.set('oken-usdt-btc', text)
 
 
 #主程序
 if __name__ == "__main__":
-    scheduler = BlockingScheduler()
-    scheduler.add_job(getFromVsTo(), 'interval', seconds=1)
     print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
     try:
         scheduler.start()
-    except (KeyboardInterrupt,SystemExit):
+    except Exception:
         scheduler.shutdown()
