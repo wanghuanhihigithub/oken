@@ -23,15 +23,15 @@ def send_message(ws, message_dict):
 def on_message(ws, message):
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
-    print("getMessage" + msg_dict)
+    print("getMessage",msg_dict)
     if("data" in msg_dict):
         data = msg_dict["data"]
         new = data[len(data) - 1]
         new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         print("new", new)
         #conn.set('usdt-btc', new)
-        #__redis.set('new',new)
-        #__pipe.execute()
+        __redis.set('new',new)
+        __pipe.execute()
         if 'ping' in msg_dict:
             data = {
                 "pong": msg_dict['ping']
