@@ -28,8 +28,7 @@ def on_message(ws, message):
         new = data[len(data) - 1]
         new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         print("new", new)
-        #conn.set('usdt-btc', new)
-        __redis.set('new',new)
+        __redis.set('usdt-btc', new)
         __pipe.execute()
         if 'ping' in msg_dict:
             data = {
