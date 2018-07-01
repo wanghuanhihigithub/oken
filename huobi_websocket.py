@@ -23,7 +23,6 @@ def send_message(ws, message_dict):
 def on_message(ws, message):
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
-    print("getMessage",msg_dict)
     if("data" in msg_dict):
         data = msg_dict["data"]
         new = data[len(data) - 1]
@@ -66,7 +65,7 @@ def on_open(ws):
 
 #主程序
 if __name__ == "__main__":
-    #create_pool()
+    create_pool()
     websocket.enableTrace(True)
     ws = websocket.WebSocketApp(
         "wss://api.huobi.pro/ws",
