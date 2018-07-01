@@ -13,9 +13,11 @@ def create_pool():
     __redis = redis.Redis(connection_pool=pool)
     global __pipe
     __pipe = __redis.pipeline(transaction=True)
+    print(__redis, __pipe)
 
 def send_message(ws, message_dict):
     data = json.dumps(message_dict).encode()
+    print("sendMessage", data)
     ws.send(data)
 
 def on_message(ws, message):
@@ -43,16 +45,6 @@ def on_error(ws, error):
 
 def on_close(ws):
     print("### closed ###")
-    websocket.enableTrace(True)
-    ws = websocket.WebSocketApp(
-        "wss://api.huobi.pro/ws",
-        on_open=on_open,
-        on_message=on_message,
-        on_error=on_error,
-        on_close=on_close
-    )
-    ws.run_forever()
-
 
 def on_open(ws):
     def run(*args):
