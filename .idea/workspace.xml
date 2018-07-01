@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="035bf0b6-08d5-4336-a07d-191fc582e52a" name="Default" comment="1111">
-      <change afterPath="$PROJECT_DIR$/fcoin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oken-websocket.py" afterDir="false" />
+    <list default="true" id="035bf0b6-08d5-4336-a07d-191fc582e52a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config_default.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config_override.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coroweb.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/markdown2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oken-timer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pymonitor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemel.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,8 +17,8 @@
       <file leaf-file-name="oken-websocket.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oken-websocket.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+            <state relative-caret-position="87">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
               <folding>
                 <element signature="e#1#17#0" expanded="true" />
               </folding>
@@ -40,11 +26,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test.py">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="223">
+              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -139,13 +125,13 @@
         <option value="$PROJECT_DIR$/sendSmsTest.py" />
         <option value="$PROJECT_DIR$/oken-timer.py" />
         <option value="$PROJECT_DIR$/coroweb.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/handlers.py" />
         <option value="$PROJECT_DIR$/redis_helper.py" />
         <option value="$PROJECT_DIR$/huobi_websocket.py" />
         <option value="$PROJECT_DIR$/oken-websocket.py" />
         <option value="$PROJECT_DIR$/ftcoin.py" />
         <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -197,7 +183,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="trade" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -300,7 +286,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="E:\trade\app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -316,10 +302,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.ftcoin" />
         <item itemvalue="Python.oken-websocket" />
         <item itemvalue="Python.huobi_websocket" />
-        <item itemvalue="Python.app" />
         <item itemvalue="Python.oken-timer" />
       </list>
     </recent_temporary>
@@ -334,20 +320,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526626707670</updated>
-    </task>
-    <task id="LOCAL-00038" summary="修改">
-      <created>1530288761501</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1530288761501</updated>
-    </task>
-    <task id="LOCAL-00039" summary="修改">
-      <created>1530288833792</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1530288833792</updated>
     </task>
     <task id="LOCAL-00040" summary="1111">
       <created>1530288978792</created>
@@ -678,17 +650,31 @@
       <option name="project" value="LOCAL" />
       <updated>1530409600611</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="111">
+      <created>1530451817386</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1530451817386</updated>
+    </task>
+    <task id="LOCAL-00088" summary="111">
+      <created>1530451841437</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1530451841437</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="469" y="23" width="964" height="728" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2056962" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14275256" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.11146497" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.48566878" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32961783" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -754,9 +740,9 @@
     <MESSAGE value="修改111" />
     <MESSAGE value="ws断开后 重启ws" />
     <MESSAGE value="修改" />
-    <MESSAGE value="111" />
     <MESSAGE value="1111" />
-    <option name="LAST_COMMIT_MESSAGE" value="1111" />
+    <MESSAGE value="111" />
+    <option name="LAST_COMMIT_MESSAGE" value="111" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1004,19 +990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fcoin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oken-websocket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding>
-            <element signature="e#1#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/MySoft/Python36/Lib/site-packages/fcoin/fcoin_api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
@@ -1034,10 +1007,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
+    <entry file="file://$PROJECT_DIR$/fcoin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oken-websocket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="87">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#1#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>

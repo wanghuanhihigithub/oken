@@ -18,7 +18,10 @@ def api_getHuobiCoinsVs():
 @route("/api/fcoinVs")
 def api_getFcoinVs():
     fcoin = Fcoin(api_key, api_secret)
-    return fcoin.get_ticket("btcusdt")
+    ticket = fcoin.get_ticket("btcusdt")
+    now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    ticket["createdTime"] = now
+    return ticket
 
 
 def getFromVsTo():
