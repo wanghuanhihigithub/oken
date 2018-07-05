@@ -23,6 +23,15 @@ def api_getFcoinVs():
     ticket["createdTime"] = now
     return ticket
 
+@route("/api/coinEx")
+def api_getCoinEx():
+    trade_url = "https://api.coinex.com/v1/market/ticker?market=btcusdt"
+    r = requests.get(trade_url, timeout=2)
+    if (r.status_code == 200):
+        text = json.loads(r.text)
+        now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        text["createdTime"] = now
+        return text
 
 def getFromVsTo():
     #now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
