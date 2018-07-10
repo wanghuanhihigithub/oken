@@ -8,6 +8,7 @@ from fcoin import Fcoin
 
 @route("/api/coinsVs")
 def api_getCoinsVs():
+
     try:
         return getFromVsTo()
     except Exception as e:
@@ -44,19 +45,14 @@ def api_getCoinEx():
             return text
     except Exception as e:
         print("获取coinEx异常" + e)
-        
+
 def getFromVsTo():
-    #now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    #conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    #if(conn.exists(now)):
-      # return conn.get(now)
     trade_url = "https://www.okex.com/api/v1/ticker.do?symbol=btc_usdt"
-    r = requests.get(trade_url,timeout=2)
+    r = requests.get(trade_url, timeout=2)
     if (r.status_code == 200):
         text = json.loads(r.text)
         now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         text["createdTime"] = now
-        #conn.set(now, text)
         return text
 
 api_key = "dcda9f2b36584b7d81f9eeb7f3465e7e"

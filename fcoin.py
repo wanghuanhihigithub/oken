@@ -27,7 +27,7 @@ class Fcoin():
         self.key = bytes(key,'utf-8')
         self.secret = bytes(secret, 'utf-8')
         self.time = 0.1
-        self.timeout = 10
+        self.timeout = 2
 
     def handler_error_if_needed(self, json):
         if 'status' in json:
