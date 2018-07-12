@@ -11,7 +11,7 @@ def send_message(ws, message_dict):
     #data = json.dumps(message_dict).encode()
     #print("sendMessage", data)
     #ws.send(data)
-    ws.send("{'event':'addChannel','channel':'ok_sub_spot_usd_btc_ticker','binary':'0'}")
+    ws.send("{'event':'addChannel','channel':'ok_sub_spot_btc_usdt_ticker','binary':'0'}")
 
 def on_message(ws, message):
     print("on_message")
@@ -32,7 +32,7 @@ def on_open(ws):
         # # 每2秒请求一次K线图，请求5次
         while(True):
             time.sleep(2)
-            ws.send("{'event':'addChannel','channel':'ok_sub_spot_usd_btc_ticker','binary':'0'}")
+            ws.send("{'event':'addChannel','channel':'ok_sub_spot_btc_usdt_ticker','binary':'0'}")
         ws.close()
         print("thread terminating...")
 
