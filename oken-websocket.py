@@ -11,7 +11,7 @@ def send_message(ws, message_dict):
     #data = json.dumps(message_dict).encode()
     #print("sendMessage", data)
     #ws.send(data)
-    ws.send("{'event':'addChannel','channel':'ok_sub_spot_bch_btc_ticker','binary':'0'}")
+    ws.send("{'event':'addChannel','channel':'ok_sub_spot_usdt_btc_ticker','binary':'0'}")
 
 def on_message(ws, message):
     print("on_message")
