@@ -13,7 +13,8 @@ def send_message(ws, message_dict):
 def on_message(ws, message):
     print("on_message")
     print(message)
-    print(message[0]["data"]["last"])
+    print(type(message))
+    #print(message[0]["data"]["last"])
 
 
 def on_error(ws, error):
