@@ -20,6 +20,7 @@ def send_message(ws, message_dict):
     ws.send("{'event':'addChannel','channel':'ok_sub_spot_eth_usdt_ticker','binary':'0'}")
 
 def on_message(ws, message):
+    print(message)
     __redis.set('oken-usdt-eth', json.loads(message)[0]["data"])
     __pipe.execute()
 
