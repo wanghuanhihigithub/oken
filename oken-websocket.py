@@ -8,14 +8,12 @@ import redis
 import time
 
 def send_message(ws, message_dict):
-    #data = json.dumps(message_dict).encode()
-    #print("sendMessage", data)
-    #ws.send(data)
     ws.send("{'event':'addChannel','channel':'ok_sub_spot_btc_usdt_ticker','binary':'0'}")
 
 def on_message(ws, message):
     print("on_message")
     print(message)
+    print(message[0]["data"]["last"])
 
 
 def on_error(ws, error):
@@ -26,6 +24,15 @@ def on_error(ws, error):
 
 def on_close(ws):
     print("### closed ###")
+    websocket.enableTrace(True)
+    ws = websocket.WebSocketApp(
+        "wss://real.okex.com:10441/websocket",
+        on_open=on_open,
+        on_message=on_message,
+        on_error=on_error,
+        on_close=on_close
+    )
+    ws.run_forever()
 
 def on_open(ws):
     def run(*args):
