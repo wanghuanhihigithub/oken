@@ -10,6 +10,11 @@ from fcoin import Fcoin
 def api_getCoinsVs():
         return getFromVsTo()
 
+@route("/api/coinsVsWebsocket")
+def api_getCoinsVs():
+    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+    return conn.get("oken-usdt-btc")
+
 @route("/api/huobiCoinsVs")
 def api_getHuobiCoinsVs():
     conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
