@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="035bf0b6-08d5-4336-a07d-191fc582e52a" name="Default" comment="oken websocket代码修改">
-      <change afterPath="$PROJECT_DIR$/websocket/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_abnf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_core.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_handshake.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_http.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_logging.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_socket.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_ssl_compat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_url.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/cacert.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/tests/data/header01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/tests/data/header02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/websocket/tests/test_websocket.py" afterDir="false" />
+    <list default="true" id="035bf0b6-08d5-4336-a07d-191fc582e52a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/fcoin-websocket.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oken-websocket.py" beforeDir="false" afterPath="$PROJECT_DIR$/oken-websocket.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="oken-websocket.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oken-websocket.py">
+      <file leaf-file-name="fcoin-websocket.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fcoin-websocket.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="208">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -46,11 +27,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="oken-websocket.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oken-websocket.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="oken-websocket-eth.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/oken-websocket-eth.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="55" column="32" lean-forward="true" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+            <state relative-caret-position="312">
+              <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -58,11 +60,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="fcoin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fcoin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="172" selection-start-line="172" selection-end-line="175" selection-end-column="22" />
+              <folding>
+                <element signature="e#141#150#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="builtins.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-268483728/builtins.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="4752" lean-forward="true" selection-start-line="4752" selection-end-line="4752" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="huobi_websocket.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/huobi_websocket.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="31" column="24" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="24" />
+            <state relative-caret-position="95">
+              <caret line="29" column="25" lean-forward="true" selection-end-line="85" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -135,13 +158,15 @@
         <option value="$PROJECT_DIR$/huobi_websocket.py" />
         <option value="$PROJECT_DIR$/ftcoin.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/fcoin.py" />
         <option value="$PROJECT_DIR$/app1.py" />
         <option value="$PROJECT_DIR$/app2.py" />
         <option value="$PROJECT_DIR$/okcoin_websocket.py" />
         <option value="$PROJECT_DIR$/app3.py" />
         <option value="$PROJECT_DIR$/oken-websocket.py" />
+        <option value="$PROJECT_DIR$/fcoin.py" />
+        <option value="$PROJECT_DIR$/fcoin-websocket.py" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/oken-websocket-eth.py" />
       </list>
     </option>
   </component>
@@ -193,25 +218,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app3">
-    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="trade" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.fcoin-websocket">
     <configuration name="app3" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="trade" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -230,7 +237,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="ftcoin" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="fcoin-websocket" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="trade" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -242,7 +249,25 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ftcoin.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fcoin-websocket.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="fcoin" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="trade" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fcoin.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -304,19 +329,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.app" />
       <item itemvalue="Python.oken-websocket" />
-      <item itemvalue="Python.ftcoin" />
       <item itemvalue="Python.okcoin_websocket" />
       <item itemvalue="Python.app3" />
+      <item itemvalue="Python.fcoin-websocket" />
+      <item itemvalue="Python.fcoin" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.fcoin-websocket" />
+        <item itemvalue="Python.fcoin" />
         <item itemvalue="Python.app3" />
         <item itemvalue="Python.oken-websocket" />
         <item itemvalue="Python.okcoin_websocket" />
-        <item itemvalue="Python.app" />
-        <item itemvalue="Python.ftcoin" />
       </list>
     </recent_temporary>
   </component>
@@ -330,55 +355,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526626707670</updated>
-    </task>
-    <task id="LOCAL-00056" summary="1111">
-      <created>1530353028828</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1530353028828</updated>
-    </task>
-    <task id="LOCAL-00057" summary="1111">
-      <created>1530353152501</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1530353152501</updated>
-    </task>
-    <task id="LOCAL-00058" summary="1111">
-      <created>1530353253964</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1530353253965</updated>
-    </task>
-    <task id="LOCAL-00059" summary="1111">
-      <created>1530354570152</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1530354570152</updated>
-    </task>
-    <task id="LOCAL-00060" summary="1111">
-      <created>1530355237484</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1530355237484</updated>
-    </task>
-    <task id="LOCAL-00061" summary="1111">
-      <created>1530355482422</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1530355482422</updated>
-    </task>
-    <task id="LOCAL-00062" summary="1111">
-      <created>1530357390932</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1530357390933</updated>
     </task>
     <task id="LOCAL-00063" summary="1111">
       <created>1530357536486</created>
@@ -674,7 +650,56 @@
       <option name="project" value="LOCAL" />
       <updated>1531398032945</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="oken websocket代码修改">
+      <created>1531398382712</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1531398382712</updated>
+    </task>
+    <task id="LOCAL-00106" summary="oken websocket代码修改">
+      <created>1531402046077</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1531402046077</updated>
+    </task>
+    <task id="LOCAL-00107" summary="oken websocket代码修改">
+      <created>1531404151201</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1531404151201</updated>
+    </task>
+    <task id="LOCAL-00108" summary="oken websocket代码修改">
+      <created>1531404870687</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1531404870687</updated>
+    </task>
+    <task id="LOCAL-00109" summary="oken websocket代码修改">
+      <created>1531404910053</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1531404910053</updated>
+    </task>
+    <task id="LOCAL-00110" summary="oken websocket代码修改">
+      <created>1531405152225</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1531405152225</updated>
+    </task>
+    <task id="LOCAL-00111" summary="oken websocket代码修改">
+      <created>1531405285995</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1531405285995</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -683,18 +708,18 @@
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.098828696" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32961783" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29140127" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34394905" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.5589172" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.16082802" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5557325" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -869,28 +894,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/MySoft/Python36/Lib/site-packages/requests/adapters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="504" column="55" lean-forward="true" selection-start-line="504" selection-start-column="55" selection-end-line="504" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/MySoft/Python36/Lib/site-packages/aiomysql/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coin.py" />
-    <entry file="file://D:/MySoft/Python36/Lib/warnings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9975">
-          <caret line="399" selection-start-line="399" selection-end-line="399" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/handlers1.py" />
     <entry file="file://$PROJECT_DIR$/trade.py" />
     <entry file="file://$PROJECT_DIR$/trade1.py" />
@@ -991,13 +994,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fcoin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app1.py" />
     <entry file="file://$PROJECT_DIR$/app2.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1030,20 +1026,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/MySoft/Python36/Lib/site-packages/websocket/_core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="442" column="4" selection-start-line="442" selection-start-column="4" selection-end-line="442" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/huobi_websocket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="31" column="24" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="31" selection-end-column="24" />
+        <state relative-caret-position="95">
+          <caret line="29" column="25" lean-forward="true" selection-end-line="85" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-268483728/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="4752" lean-forward="true" selection-start-line="4752" selection-end-line="4752" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fcoin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="172" selection-start-line="172" selection-end-line="175" selection-end-column="22" />
+          <folding>
+            <element signature="e#141#150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/oken-websocket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="177">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -1052,11 +1072,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="55" column="32" lean-forward="true" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+        <state relative-caret-position="312">
+          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fcoin-websocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oken-websocket-eth.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
         </state>
       </provider>
     </entry>
