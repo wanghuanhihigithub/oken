@@ -13,7 +13,7 @@ def send_message(ws, message_dict):
 def on_message(ws, message):
     print("on_message")
     print(message)
-    print(json.loads(message[0]["data"]["last"]))
+    print(json.loads(str)[0]["data"]["last"])
 
 
 def on_error(ws, error):
