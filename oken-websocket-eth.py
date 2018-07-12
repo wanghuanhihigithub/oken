@@ -16,9 +16,6 @@ def create_pool():
     print(__redis, __pipe)
 
 
-def send_message(ws, message_dict):
-    ws.send("{'event':'addChannel','channel':'ok_sub_spot_eth_usdt_ticker','binary':'0'}")
-
 def on_message(ws, message):
     print(message)
     __redis.set('oken-usdt-eth', json.loads(message)[0]["data"])
@@ -49,7 +46,7 @@ def on_open(ws):
         # # 每2秒请求一次K线图，请求5次
         while(True):
             time.sleep(2)
-            ws.send("{'event':'addChannel','channel':'ok_sub_spot_btc_usdt_ticker','binary':'0'}")
+            ws.send("{'event':'addChannel','channel':'ok_sub_spot_eth_usdt_ticker','binary':'0'}")
         ws.close()
         print("thread terminating...")
 
