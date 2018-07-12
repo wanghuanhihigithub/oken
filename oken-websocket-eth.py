@@ -17,10 +17,10 @@ def create_pool():
 
 
 def send_message(ws, message_dict):
-    ws.send("{'event':'addChannel','channel':'ok_sub_spot_btc_eth_ticker','binary':'0'}")
+    ws.send("{'event':'addChannel','channel':'ok_sub_spot_eth_usdt_ticker','binary':'0'}")
 
 def on_message(ws, message):
-    __redis.set('oken-usdt-btc', json.loads(message)[0]["data"])
+    __redis.set('oken-usdt-eth', json.loads(message)[0]["data"])
     __pipe.execute()
 
 
