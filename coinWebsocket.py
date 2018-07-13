@@ -22,12 +22,12 @@ def create_pool():
 def on_message(ws, message):
     '''__redis.set('oken-usdt-btc', json.loads(message)[0]["data"])
     __pipe.execute()'''
-    print("接收消息" + ws)
-    print("message" + message)
+    print("接收消息", ws)
+    print("message:", message)
 
 
 def on_error(ws, error):
-    print("OKEN币USDT-BTC Error: " + str(error))
+    print("OKEN币USDT-BTC Error: ", str(error))
 
 def on_open(ws):
     def run(*args):
