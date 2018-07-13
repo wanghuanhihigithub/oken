@@ -29,7 +29,7 @@ def on_message(ws, message):
         redisKey = "oken-usdt-eth"
 
     if(redisKey != None):
-        __redis.set('redisKey', json.loads(message)[0]["data"])
+        __redis.set('redisKey', message["data"])
         __pipe.execute()
 
 #oken币发生异常
