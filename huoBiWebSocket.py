@@ -31,10 +31,10 @@ def on_message(ws, message):
         new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         print("new", new)
         redisKey = None
-        if("market.btcusdt.kline.1min" == msg_dict["req"]):
+        if("market.btcusdt.kline.1min" == msg_dict["rep"]):
              redisKey = "huoBi-usdt-btc"
 
-        if("market.ethusdt.kline.1min" == msg_dict["req"]):
+        if("market.ethusdt.kline.1min" == msg_dict["rep"]):
             redisKey = "huoBi-usdt-eth"
 
         if(redisKey != None):
