@@ -37,7 +37,7 @@ def on_message(ws, message):
 
 #oken币发生异常
 def on_error(ws, error):
-    print("OKEN币Error: ", str(error))
+    print("ws报错: ", str(error))
 
 #oken币开启ws代码
 def on_open(ws):
