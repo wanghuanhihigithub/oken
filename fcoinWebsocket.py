@@ -5,7 +5,9 @@ import threading
 import websocket
 import redis
 import time
+from datetime import datetime
 
+#fcoin币的Ws接口
 fcoin_ws_url = "wss://ws.fcoin.com/api/v2/ws"
 
 def create_pool():
@@ -17,7 +19,19 @@ def create_pool():
     print(__redis, __pipe)
 
 def on_message(ws, message):
-   print(message)
+   data = json.loads(message)["data"]
+   type = data["type"]
+   redisKey = None;
+   if('ticker.btcusdt'== type):
+       redisKey = "fcoin-usdt-btc"
+   if("ticker.ethusdt" == type):
+       redisKey = "fcoin-usdt-eth"
+
+   if(redisKey != None):
+       ticker = data["ticker"]
+       ticker.append(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+       __redis.set(redisKey, ticker)
+       __pipe.execute()
 
 
 def on_error(ws, error):

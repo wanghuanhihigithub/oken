@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="035bf0b6-08d5-4336-a07d-191fc582e52a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/coinWebsocket.py" afterDir="false" />
+    <list default="true" id="035bf0b6-08d5-4336-a07d-191fc582e52a" name="Default" comment="111">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fcoin-websocket.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fcoinWebsocket.py" beforeDir="false" afterPath="$PROJECT_DIR$/fcoinWebsocket.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huoBiWebSocket.py" beforeDir="false" afterPath="$PROJECT_DIR$/huoBiWebSocket.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huobi_websocket.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oken-websocket-eth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oken-websocket.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +20,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fcoinWebsocket.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fcoinWebsocket.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="17" />
+            <state relative-caret-position="403">
+              <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -26,32 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="coinWebsocket.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coinWebsocket.py">
+      <file leaf-file-name="huoBiWebSocket.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/huoBiWebSocket.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="125">
+              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oken-websocket-eth.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oken-websocket-eth.py">
+      <file leaf-file-name="okenWebSocket.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/okenWebSocket.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="55" selection-start-line="55" selection-end-line="66" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oken-websocket.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oken-websocket.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="55" column="13" lean-forward="true" selection-start-line="21" selection-end-line="55" selection-end-column="13" />
+            <state relative-caret-position="50">
+              <caret line="8" selection-start-line="8" selection-end-line="18" selection-end-column="26" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -62,7 +65,7 @@
       <file leaf-file-name="bottle.py" pinned="false" current-in-tab="false">
         <entry file="file://D:/MySoft/Python36/Lib/site-packages/bottle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
+            <state relative-caret-position="25">
               <caret line="2705" column="3" selection-start-line="2705" selection-end-line="2705" selection-end-column="3" />
             </state>
           </provider>
@@ -139,10 +142,14 @@
         <option value="$PROJECT_DIR$/app3.py" />
         <option value="$PROJECT_DIR$/oken-websocket.py" />
         <option value="$PROJECT_DIR$/fcoin.py" />
-        <option value="$PROJECT_DIR$/fcoin-websocket.py" />
-        <option value="$PROJECT_DIR$/oken-websocket-eth.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/coinWebsocket.py" />
+        <option value="$PROJECT_DIR$/redisUtil.py" />
+        <option value="$PROJECT_DIR$/oken-websocket-eth.py" />
+        <option value="$PROJECT_DIR$/okenWebSocket.py" />
+        <option value="$PROJECT_DIR$/fcoin-websocket.py" />
+        <option value="$PROJECT_DIR$/huoBiWebSocket.py" />
+        <option value="$PROJECT_DIR$/fcoinWebsocket.py" />
+        <option value="$PROJECT_DIR$/app.py" />
       </list>
     </option>
   </component>
@@ -194,7 +201,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.fcoinWebsocket">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="trade" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -267,7 +274,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="oken-websocket" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="fcoinWebsocket" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="trade" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -279,7 +286,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/oken-websocket.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fcoinWebsocket.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -305,19 +312,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.oken-websocket" />
       <item itemvalue="Python.app3" />
       <item itemvalue="Python.fcoin-websocket" />
       <item itemvalue="Python.fcoin" />
       <item itemvalue="Python.app" />
+      <item itemvalue="Python.fcoinWebsocket" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.fcoinWebsocket" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.fcoin-websocket" />
         <item itemvalue="Python.fcoin" />
         <item itemvalue="Python.app3" />
-        <item itemvalue="Python.oken-websocket" />
       </list>
     </recent_temporary>
   </component>
@@ -331,76 +338,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526626707670</updated>
-    </task>
-    <task id="LOCAL-00065" summary="1111">
-      <created>1530357848741</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1530357848742</updated>
-    </task>
-    <task id="LOCAL-00066" summary="1111">
-      <created>1530361856361</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1530361856362</updated>
-    </task>
-    <task id="LOCAL-00067" summary="1111">
-      <created>1530363452624</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1530363452624</updated>
-    </task>
-    <task id="LOCAL-00068" summary="1111">
-      <created>1530363573381</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1530363573381</updated>
-    </task>
-    <task id="LOCAL-00069" summary="1111">
-      <created>1530363665165</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1530363665165</updated>
-    </task>
-    <task id="LOCAL-00070" summary="1111">
-      <created>1530363841761</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1530363841761</updated>
-    </task>
-    <task id="LOCAL-00071" summary="1111">
-      <created>1530365535933</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1530365535933</updated>
-    </task>
-    <task id="LOCAL-00072" summary="1111">
-      <created>1530365672145</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1530365672145</updated>
-    </task>
-    <task id="LOCAL-00073" summary="1111">
-      <created>1530366307721</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1530366307721</updated>
-    </task>
-    <task id="LOCAL-00074" summary="1111">
-      <created>1530366487670</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1530366487670</updated>
     </task>
     <task id="LOCAL-00075" summary="1111">
       <created>1530366646706</created>
@@ -675,23 +612,93 @@
       <option name="project" value="LOCAL" />
       <updated>1531461702428</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="usdt-eth">
+      <created>1531466139028</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1531466139029</updated>
+    </task>
+    <task id="LOCAL-00115" summary="usdt-eth">
+      <created>1531466242320</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1531466242321</updated>
+    </task>
+    <task id="LOCAL-00116" summary="usdt-eth">
+      <created>1531466366189</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1531466366189</updated>
+    </task>
+    <task id="LOCAL-00117" summary="usdt-eth">
+      <created>1531469465246</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1531469465246</updated>
+    </task>
+    <task id="LOCAL-00118" summary="usdt-eth">
+      <created>1531469639656</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1531469639656</updated>
+    </task>
+    <task id="LOCAL-00119" summary="111">
+      <created>1531470644660</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1531470644660</updated>
+    </task>
+    <task id="LOCAL-00120" summary="111">
+      <created>1531470825045</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1531470825045</updated>
+    </task>
+    <task id="LOCAL-00121" summary="111">
+      <created>1531470939299</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1531470939299</updated>
+    </task>
+    <task id="LOCAL-00122" summary="111">
+      <created>1531471825781</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1531471825781</updated>
+    </task>
+    <task id="LOCAL-00123" summary="111">
+      <created>1531471920185</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1531471920185</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.098828696" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20790629" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32961783" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28025478" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.5589172" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5509554" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28025478" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -753,19 +760,14 @@
     <MESSAGE value="修改" />
     <MESSAGE value="1111" />
     <MESSAGE value="增加新平台" />
-    <MESSAGE value="111" />
     <MESSAGE value="oken websocket代码修改" />
     <MESSAGE value="usdt-eth" />
-    <option name="LAST_COMMIT_MESSAGE" value="usdt-eth" />
+    <MESSAGE value="111" />
+    <option name="LAST_COMMIT_MESSAGE" value="111" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oken-websocket.py</url>
-          <line>31</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://D:/MySoft/Python36/Lib/site-packages/fcoin/fcoin_api.py</url>
           <line>17</line>
@@ -782,18 +784,54 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="62" />
+      <option name="time" value="64" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="request.query" />
         <watch expression="request.query.fromType" />
         <watch expression="request" language="Python" />
+        <watch expression="json.loads(message)[&quot;data&quot;][&quot;ticker&quot;].append(1)" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>json.loads(message)[&quot;data&quot;][&quot;ticker&quot;].append(1)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>json.loads(message)[&quot;data&quot;][&quot;ticker&quot;].push(1)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>json.loads(message)[&quot;data&quot;][&quot;type&quot;]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>json.loads(message)[&quot;data&quot;][&quot;ticker&quot;]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>json.loads(message)[&quot;data&quot;].ticker</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>json.loads(message)[&quot;data&quot;]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>json.loads(message)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>request</expression-string>
         <language-id>Python</language-id>
@@ -806,26 +844,6 @@
       </expression>
       <expression>
         <expression-string>eval(request.query_string)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>type(request.query_string)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>json.loads(request.query_string)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>json.loads(request.query.string)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>request.query_string</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -879,16 +897,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/trade1.py" />
-    <entry file="file://$PROJECT_DIR$/login.py" />
-    <entry file="file://D:/MySoft/Python36/Lib/site-packages/aiohttp/web_urldispatcher.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/do_sql.py" />
     <entry file="file://D:/MySoft/Python36/Lib/site-packages/aiomysql/cursors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -996,16 +1004,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/huobi_websocket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="29" column="25" lean-forward="true" selection-end-line="85" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/-268483728/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118800">
@@ -1023,37 +1021,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fcoin-websocket.py">
+    <entry file="file://$PROJECT_DIR$/redisUtil.py" />
+    <entry file="file://$PROJECT_DIR$/okenWebSocket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1075">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        <state relative-caret-position="303">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/MySoft/Python36/Lib/site-packages/bottle.py">
+    <entry file="file://$PROJECT_DIR$/oken-websocket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="2705" column="3" selection-start-line="2705" selection-end-line="2705" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="17" />
+        <state relative-caret-position="1200">
+          <caret line="55" column="13" selection-start-line="21" selection-end-line="55" selection-end-column="13" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oken-websocket.py">
+    <entry file="file://$PROJECT_DIR$/okenWebSocket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="55" column="13" lean-forward="true" selection-start-line="21" selection-end-line="55" selection-end-column="13" />
+        <state relative-caret-position="50">
+          <caret line="8" selection-start-line="8" selection-end-line="18" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fcoin-websocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -1062,17 +1064,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/oken-websocket-eth.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="55" selection-start-line="55" selection-end-line="66" selection-end-column="20" />
+        <state relative-caret-position="25">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coinWebsocket.py">
+    <entry file="file://$PROJECT_DIR$/huoBiWebSocket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        <state relative-caret-position="125">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fcoinWebsocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/huobi_websocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="28" column="73" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="73" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/MySoft/Python36/Lib/site-packages/bottle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="2705" column="3" selection-start-line="2705" selection-end-line="2705" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>

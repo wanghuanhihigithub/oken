@@ -38,7 +38,7 @@ def on_message(ws, message):
             redisKey = "huoBi-usdt-eth"
 
         if(redisKey != None):
-            __redis.set('usdt-btc', new)
+            __redis.set(redisKey, new)
             __pipe.execute()
 
 

@@ -22,16 +22,27 @@ def api_getCoinsVs():
 
 @route("/api/oken")
 def get_oken():
+    return getFromRedis("oken", request)
+
+@route("/api/huoBi")
+def get_huoBi():
+   return getFromRedis("huoBi", request)
+
+@route("/api/fcoin")
+def get_fcoin():
+   return getFromRedis("fcoin", request)
+
+def getFromRedis(coinType, request):
     fromType = request.query.fromType
     toType = request.query.toType
     conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    return conn.get("oken-" + fromType + "-" + toType)
+    return conn.get(coinType + "-" + fromType + "-" + toType)
 
 
 @route("/api/huobiCoinsVs")
 def api_getHuobiCoinsVs():
     conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    return conn.get("usdt-btc")
+    return conn.get("huoBi-usdt-btc")
 
 
 @route("/api/fcoinVs")
