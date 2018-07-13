@@ -1,4 +1,4 @@
-from bottle import route, run
+from bottle import route, run,request
 import redis
 import requests
 import json
@@ -19,6 +19,14 @@ def api_getCoinsVs():
 def api_getCoinsVs():
     conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
     return conn.get("oken-usdt-eth")
+
+@route("/api/oken")
+def get_oken():
+    fromType = request.query.fromType
+    toType = request.query.toType
+    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+    return conn.get("oken-" + fromType + "-" + toType)
+
 
 @route("/api/huobiCoinsVs")
 def api_getHuobiCoinsVs():
