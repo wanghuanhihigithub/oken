@@ -28,7 +28,7 @@ def on_error(ws, error):
 
 def on_close(ws):
     print("### closed ###")
-    runFcoinWs()
+    #runFcoinWs()
 
 def on_open(ws):
     def run(*args):
