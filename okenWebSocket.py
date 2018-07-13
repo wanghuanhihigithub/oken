@@ -21,8 +21,6 @@ def create_pool():
 #OKEN币接收Usdt和Btc变更
 def on_message(ws, message):
     message = json.loads(message)[0]
-    print(message)
-    print(type(message))
     redisKey = None
     if("ok_sub_spot_btc_usdt_ticker" == message["channel"]):
         redisKey = "oken-usdt-btc"
