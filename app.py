@@ -32,6 +32,18 @@ def get_huoBi():
 def get_fcoin():
    return getFromRedis("fcoin", request)
 
+@route("/api/coinEx")
+def get_coinEx():
+    fromType = request.query.fromType
+    toType = request.query.toType
+    trade_url = "https://api.coinex.com/v1/market/ticker?market=" + toType + fromType
+    r = requests.get(trade_url, timeout=2)
+    if (r.status_code == 200):
+        text = json.loads(r.text)
+        now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        text["createdTime"] = now
+        return text
+
 def getFromRedis(coinType, request):
     fromType = request.query.fromType
     toType = request.query.toType
