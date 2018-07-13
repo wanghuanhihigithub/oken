@@ -22,17 +22,24 @@ def create_pool():
 def on_message(ws, message):
     unzipped_data = gzip.decompress(message).decode()
     msg_dict = json.loads(unzipped_data)
-    for i in msg_dict:
-        if(i != "data"):
-            print(i,"===", msg_dict[i])
-    '''if("data" in msg_dict):
+    if("ok" != msg_dict["status"]):
+        return
+
+    if("data" in msg_dict):
         data = msg_dict["data"]
         new = data[len(data) - 1]
         new["createdTime"] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         print("new", new)
-        __redis.set('usdt-btc', new)
-        __pipe.execute()'''
+        redisKey = None
+        if("market.btcusdt.kline.1min" == msg_dict["req"]):
+             redisKey = "huoBi-usdt-btc"
 
+        if("market.ethusdt.kline.1min" == msg_dict["req"]):
+            redisKey = "huoBi-usdt-eth"
+
+        if(redisKey != None):
+            __redis.set('usdt-btc', new)
+            __pipe.execute()
 
 
 def on_error(ws, error):
@@ -43,7 +50,7 @@ def on_error(ws, error):
 
 def on_close(ws):
     print("### closed ###")
-    #runHuoBiWebsocket()
+    runHuoBiWebsocket()
 
 def on_open(ws):
     def run(*args):
