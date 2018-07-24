@@ -35,9 +35,7 @@ def on_message(ws, message):
 
 
 def on_error(ws, error):
-    print("Error: " + str(error))
-    error = gzip.decompress(error).decode()
-    print(error)
+    print("Error: " ,error)
 
 
 def on_close(ws):
