@@ -13,7 +13,6 @@ def create_pool():
     print(__redis, __pipe)
 
 def fun_timer():
-    print("hello timer", datetime.now())
     get_coinEx("btc","usdt")
     get_coinEx("eth","usdt")
     global timer
@@ -31,8 +30,8 @@ def get_coinEx(toType, fromType):
         if("eth" == toType):
             redisKey = "coinEx-usdt-eth"
         print(redisKey, text)
-        #__redis.set(redisKey, text)
-        #__pipe.execute()
+        __redis.set(redisKey, text)
+        __pipe.execute()
 #主程序
 if __name__ == "__main__":
     create_pool()
