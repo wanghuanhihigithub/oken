@@ -1,6 +1,5 @@
 import redis
 import threading
-from datetime import datetime
 import requests
 import json
 
@@ -24,12 +23,9 @@ def get_coinEx(toType, fromType):
     r = requests.get(trade_url, timeout=2)
     if (r.status_code == 200):
         text = json.loads(r.text)
-        now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        text["createdTime"] = now
         redisKey = "coinEx-usdt-btc"
         if("eth" == toType):
             redisKey = "coinEx-usdt-eth"
-        print(redisKey, text)
         __redis.set(redisKey, text)
         __pipe.execute()
 #主程序
