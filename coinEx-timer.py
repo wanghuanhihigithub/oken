@@ -20,14 +20,18 @@ def fun_timer():
 
 def get_coinEx(toType, fromType):
     trade_url = "https://api.coinex.com/v1/market/ticker?market=" + toType + fromType
-    r = requests.get(trade_url, timeout=2)
-    if (r.status_code == 200):
-        text = json.loads(r.text)
-        redisKey = "coinEx-usdt-btc"
-        if("eth" == toType):
-            redisKey = "coinEx-usdt-eth"
-        __redis.set(redisKey, text)
-        __pipe.execute()
+    try:
+        r = requests.get(trade_url, timeout=2)
+        if (r.status_code == 200):
+            text = json.loads(r.text)
+            redisKey = "coinEx-usdt-btc"
+            if("eth" == toType):
+                redisKey = "coinEx-usdt-eth"
+            __redis.set(redisKey, text)
+            __pipe.execute()
+    except Exception  as e:
+        print("coinEx获取行情失败", e)
+
 #主程序
 if __name__ == "__main__":
     create_pool()
