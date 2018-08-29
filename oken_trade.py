@@ -1,31 +1,13 @@
-#oken网自动取消,暂停
 import requests
 import json
 
-#暂停接单/开始接单 True开始接单 False暂停接单
-def startOrStopTrade():
-    headers = {"authorization": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJjNTY0N2M4MS1jZDljLTRkN2YtYmM3MC1iZGI2YjRlMjhiODNiamVqIiwidWlkIjoiM2xuNzNkSmxtNXJhQzZIK0RtWG9Rdz09Iiwic3ViIjoiMTg5KioqODQ5MCIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1MzM2NDAwMzUsImV4cCI6MTUzNDI0NDgzNSwiYmlkIjowLCJkb20iOiJ3d3cub2tleC5jb20iLCJpc3MiOiJva2NvaW4ifQ.nOLePYEBLt7ODHC75CQOeloAtDkxpIcNHO1YFwn5JYxc0A6nPhgNV9znzuLvayTrsEyBQ7sSSfpI30x56oGW7Q",
-               "user-agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36",
-               "content-type": "application/json"
-               }
-    url = "https://www.okex.com/v2/c2c-open/tradingOrder/accept-order"
-    r = requests.post(url, data={"acceptOrder": True}, headers=headers)
+headers = {
+    "authorization":"eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJleDExMDE1MzU1NTA4MTYwNTJEMEY2MjFFQTlBRjA5NkIxSkxBViIsInVpZCI6IkZBUEU0SWxPYlF5c1haWW95dzBIUHc9PSIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1MzU1NTA4MTYsImV4cCI6MTUzNjE1NTYxNiwiYmlkIjowLCJkb20iOiJ3d3cub2tleC5jb20iLCJpc3MiOiJva2NvaW4ifQ.JddmytO3Hdkrgj4E5Xwe1fT2Zo9A--R5zsZnuMbksyPBKwNZLnrCF59fdGqxUsYaeckRwJScZYwFkePwr3OKqA"
+}
+url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbol=btc&legalCurrencySymbol=cny&best=0&exchangeRateLevel=0&paySupport=0"
+
+while(True):
+    r = requests.get(url, headers=headers, timeout=10)
     print(r.status_code)
     print(r.text)
-
-
-#取消订单
-def cancelTrade():
-    headers = {
-        "authorization": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJjNTY0N2M4MS1jZDljLTRkN2YtYmM3MC1iZGI2YjRlMjhiODNiamVqIiwidWlkIjoiM2xuNzNkSmxtNXJhQzZIK0RtWG9Rdz09Iiwic3ViIjoiMTg5KioqODQ5MCIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1MzM2NDAwMzUsImV4cCI6MTUzNDI0NDgzNSwiYmlkIjowLCJkb20iOiJ3d3cub2tleC5jb20iLCJpc3MiOiJva2NvaW4ifQ.nOLePYEBLt7ODHC75CQOeloAtDkxpIcNHO1YFwn5JYxc0A6nPhgNV9znzuLvayTrsEyBQ7sSSfpI30x56oGW7Q",
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.79 Safari/537.36",
-        "accept": "application/json"
-    }
-    url = "https://www.okex.com/v2/c2c-open/tradingOrder/180807195411825/cancel"
-    print("取消订单")
-    r = requests.post(url,data={}, timeout=2, headers=headers)
-    print(r.status_code)
-    print(r.text)
-
-if __name__ == "__main__":
-    startOrStopTrade()
+    print(json.loads(r.text)["data"]["buyTradingOrders"][0]["exchangeRate"])
