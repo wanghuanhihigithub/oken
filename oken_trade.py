@@ -9,5 +9,4 @@ url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbo
 while(True):
     r = requests.get(url, headers=headers, timeout=10)
     print(r.status_code)
-    print(r.text)
     print(json.loads(r.text)["data"]["buyTradingOrders"][0]["exchangeRate"])
