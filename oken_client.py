@@ -3,7 +3,8 @@ import asyncio
 
 
 async def hello():
-    async with websockets.connect('ws://localhost:8765') as websocket:
+    #35.236.186.12
+    async with websockets.connect('ws://35.236.186.12:8765') as websocket:
         name = input("what's your name?")
         await websocket.send(name)
         print(f"send server:{name}")
