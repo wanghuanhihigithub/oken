@@ -3,7 +3,6 @@ import time
 from splinter.browser import Browser
 import requests
 import json
-from pyvirtualdisplay import Display
 
 global price
 #登录oken网
@@ -55,10 +54,6 @@ def cancelTrade():
     browser.find_by_text("撤销").last.click()
 
 if __name__ == '__main__':
-
-
-    display = Display(visible=0, size=(1024, 800))
-    display.start()
     browser = Browser("chrome")
 #with Browser("chrome") as browser:
     login(browser)
