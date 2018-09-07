@@ -3,10 +3,13 @@ import json
 from datetime import datetime
 
 headers = {
-    "authorization":"eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJleDExMDE1MzU1NTA4MTYwNTJEMEY2MjFFQTlBRjA5NkIxSkxBViIsInVpZCI6IkZBUEU0SWxPYlF5c1haWW95dzBIUHc9PSIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1MzU1NTA4MTYsImV4cCI6MTUzNjE1NTYxNiwiYmlkIjowLCJkb20iOiJ3d3cub2tleC5jb20iLCJpc3MiOiJva2NvaW4ifQ.JddmytO3Hdkrgj4E5Xwe1fT2Zo9A--R5zsZnuMbksyPBKwNZLnrCF59fdGqxUsYaeckRwJScZYwFkePwr3OKqA"
+    #"authorization":"eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJleDExMDE1MzU1NTA4MTYwNTJEMEY2MjFFQTlBRjA5NkIxSkxBViIsInVpZCI6IkZBUEU0SWxPYlF5c1haWW95dzBIUHc9PSIsInN0YSI6MCwibWlkIjowLCJpYXQiOjE1MzYwNDEwNTEsImV4cCI6MTUzNjY0NTg1MSwiYmlkIjowLCJkb20iOiJ3d3cub2tleC5jb20iLCJpc3MiOiJva2NvaW4ifQ.dyBsu9g7VzrsUxCTq5lG18EylVmY0iC_pQmLu_k8NYfEfgXDM7Crwx1YT2AMy-7GAtZRCa0zUwTXfUcJwFvWIw"
 }
-url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbol=btc&legalCurrencySymbol=cny&best=0&exchangeRateLevel=0&paySupport=0"
+url = "https://www.okex.com/v3/c2c/tradingOrders/book?side=all&baseCurrency=btc&quoteCurrency=cny&userType=certified&paymentMethod=all"
 
-while(True):
-    r = requests.get(url, headers=headers, timeout=10)
-    print(datetime.now(),json.loads(r.text)["data"]["buyTradingOrders"][0]["exchangeRate"])
+
+r = requests.get(url, headers=headers, timeout=2)
+data = json.loads(r.text)["data"]["sell"]
+for i in data:
+    print(i)
+

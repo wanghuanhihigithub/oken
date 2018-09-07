@@ -4,7 +4,7 @@ from splinter.browser import Browser
 import requests
 import json
 
-global price
+price = 0
 #登录oken网
 def login(browser):
     browser.visit("https://www.okex.com/")
@@ -26,40 +26,40 @@ def getBtcTrade():
     }
     url = "https://www.okex.com/v2/c2c-open/tradingOrders/group?digitalCurrencySymbol=btc&legalCurrencySymbol=cny&best=1&exchangeRateLevel=0&paySupport=0"
     try:
-        r = requests.get(url, headers=headers)
+        r = requests.get(url, headers=headers, timeout=2)
+        requests.adapters.DEFAULT_RETRIES = 5
         if(r.status_code == 200):
-             print(r.text)
-             return json.loads(r.text)["data"]["buyTradingOrders"][1]
+             print(json.loads(r.text)["data"]["buyTradingOrders"][3]["exchangeRate"])
+             return json.loads(r.text)["data"]["buyTradingOrders"][3]
     except Exception as e:
         print(e)
         return None
 
 
 def deployTrade(buy):
-    #time.sleep(3)
-    browser.find_by_css(".list-main").first.find_by_tag("li")[1].click()
-    #time.sleep(2)
-    browser.find_by_text("发布委托单").click()
-    #time.sleep(1)
+    js = "window.scrollTo(0,0)"
+    browser.execute_script(js)
+    browser.find_by_text("发布委托单").first.click()
+    time.sleep(1)
     browser.find_by_name("price").fill(round(buy["exchangeRate"]) - 10)
     browser.find_by_css(".release-entrust-box").first.find_by_name("amount").fill("0.05")
     browser.find_by_text("发布买单").click()
-    #time.sleep(3)
     browser.find_by_css(".release-confirm-box").first.find_by_css(".cancel-order").click()
 
 def cancelTrade():
     js = "window.scrollTo(0,document.body.scrollHeight)"
     browser.execute_script(js)
-    browser.find_by_text("我的委托单").click()
     browser.find_by_text("撤销").last.click()
+    browser.find_by_text("确定").click()
+    time.sleep(5)
 
-#if __name__ == '__main__':
-   # browser = Browser("chrome")
 with Browser("chrome") as browser:
     login(browser)
     browser.find_by_text("法币交易").click()
     time.sleep(3)
+    browser.find_by_css(".list-main").first.find_by_tag("li")[1].click()
     browser.find_by_text("盘口模式").click()
+    browser.find_by_text("我的委托单").click()
     buy = getBtcTrade()
     if(buy != None):
       deployTrade(buy)
@@ -74,6 +74,5 @@ with Browser("chrome") as browser:
                 cancelTrade()
                 deployTrade(buy)
                 price = round(buy["exchangeRate"]) - 10
-                print(price)
 
 
