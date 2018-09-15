@@ -14,6 +14,7 @@ import json
 from websocket import create_connection
 from enum import Enum, unique
 
+#fcoin提供的方法封装
 @unique
 class StatusErrorCode(Enum):
     """docstring for StatusCode"""

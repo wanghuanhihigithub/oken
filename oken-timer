@@ -1,0 +1,33 @@
+#oken定时器 获取usdt和btc买入卖出价格，存入redis
+import requests
+import json
+import time
+from datetime import datetime
+import redis
+
+#coinEx定时取usdt-btc eth-usdt比
+def create_pool():
+    pool = redis.ConnectionPool(host="127.0.0.1", port=6379, db=0)
+    global __redis
+    __redis = redis.Redis(connection_pool=pool)
+    global __pipe
+    __pipe = __redis.pipeline(transaction=True)
+    print(__redis, __pipe)
+
+
+def getPrice(type):
+    url = "https://www.okex.com/v3/c2c/tradingOrders/book?side=all&baseCurrency=" + type +"&quoteCurrency=cny&userType=certified&paymentMethod=all"
+    r = requests.get(url, timeout=1)
+    print(datetime.now(), "----", r.text)
+    __redis.set("oken-" + type , r.text)
+    __pipe.execute()
+
+
+while(True):
+    try:
+        getPrice("btc")
+        getPrice("usdt")
+    except:
+        getPrice("btc")
+        getPrice("usdt")
+

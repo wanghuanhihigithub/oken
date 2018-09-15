@@ -3,6 +3,8 @@ import threading
 import requests
 import json
 
+
+#coinEx定时取usdt-btc eth-usdt比
 def create_pool():
     pool = redis.ConnectionPool(host="127.0.0.1", port=6379, db=0)
     global __redis
