@@ -24,20 +24,10 @@ def get_coinEx():
     return getFromRedis("coinEx", request)
 
 
-@route("/api/oken/change")
-def getOkenChange():
-    side = request.query.side
+@route("/api/oken/all")
+def getOkenAll():
     conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    data = conn.get("oken-" + side)
-    if(data == None):
-        return None
-    data = data["data"]["buy"]
-    if("sell" == side):
-        data = data["data"]["sell"]
-    for i in data:
-        if(i["creator"]["nickName"] == request.query.nickName):
-            return i
-    return None
+    return {"btc":conn.get("oken-btc"),"usdt": conn.get("oken-usdt")}
 
 
 def getFromRedis(coinType, request):
