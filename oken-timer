@@ -21,13 +21,14 @@ def getPrice(type):
     print(datetime.now(), "----", r.text)
     __redis.set("oken-" + type , r.text)
     __pipe.execute()
-
-
-while(True):
-    try:
-        getPrice("btc")
-        getPrice("usdt")
-    except:
-        getPrice("btc")
-        getPrice("usdt")
+#主程序
+if __name__ == "__main__":
+    create_pool()
+    while(True):
+        try:
+            getPrice("btc")
+            getPrice("usdt")
+        except:
+            getPrice("btc")
+            getPrice("usdt")
 
