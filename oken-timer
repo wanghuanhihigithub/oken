@@ -17,7 +17,6 @@ def getPrice(type):
     url = "https://www.okex.com/v3/c2c/tradingOrders/book?side=all&baseCurrency=" + type +"&quoteCurrency=cny&userType=certified&paymentMethod=all"
     r = requests.get(url, timeout=1)
     if(r.status_code == 200):
-        print(datetime.now(), "----", r.text)
         __redis.set("oken-" + type, r.text)
         __pipe.execute()
 #主程序
@@ -27,6 +26,8 @@ if __name__ == "__main__":
         try:
             getPrice("btc")
             getPrice("usdt")
+            print(__redis.get("oken-btc"))
+            print(__redis.get("oken-usdt"))
         except:
             getPrice("btc")
             getPrice("usdt")
