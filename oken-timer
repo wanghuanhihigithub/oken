@@ -22,13 +22,18 @@ def getPrice(type):
 #主程序
 if __name__ == "__main__":
     create_pool()
-    while(True):
-        try:
-            getPrice("btc")
-            getPrice("usdt")
-            print(__redis.get("oken-btc"))
-            print(__redis.get("oken-usdt"))
-        except:
-            getPrice("btc")
-            getPrice("usdt")
-
+    getPrice("btc")
+    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+    btc = conn.get("oken-btc")
+    print(datetime.now(), type(btc))
+    usdt = conn.get("oken-usdt")
+    print(datetime.now(), type(usdt))
+    #while(True):
+    #    try:
+    #        getPrice("btc")
+    #        getPrice("usdt")
+    #        print(__redis.get("oken-btc"))
+    #        print(__redis.get("oken-usdt"))
+    #    except:
+    #        getPrice("btc")
+    #        getPrice("usdt")
