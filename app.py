@@ -27,7 +27,9 @@ def get_coinEx():
 @route("/api/oken/all")
 def getOkenAll():
     conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    return {"btc":conn.get("oken-btc"),"usdt": conn.get("oken-usdt")}
+    btc = conn.get("oken-btc")
+    usdt = conn.get("oken-usdt")
+    return {"btc": btc, "usdt": usdt}
 
 
 def getFromRedis(coinType, request):
