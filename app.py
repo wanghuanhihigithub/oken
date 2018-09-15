@@ -27,14 +27,15 @@ def get_coinEx():
 @route("/api/oken/change")
 def getOkenChange():
     side = request.query.side
-    url = "https://www.okex.com/v3/c2c/tradingOrders/book?side=all&baseCurrency=" + request.query.baseCurrency + "&quoteCurrency=cny&userType=certified&paymentMethod=all"
-    r = requests.get(url, timeout=2)
-    data = json.loads(r.text)["data"]["buy"]
+    conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
+    data = conn.get("oken-" + side)
+    if(data == None):
+        return None
+    data = data["data"]["buy"]
     if("sell" == side):
-        data = json.loads(r.text)["data"]["sell"]
+        data = data["data"]["sell"]
     for i in data:
         if(i["creator"]["nickName"] == request.query.nickName):
-            #if(i["quoteMinAmountPerOrder"] == int(request.query.quoteMinAmountPerOrder)):
             return i
     return None
 
