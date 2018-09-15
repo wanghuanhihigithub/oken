@@ -17,6 +17,7 @@ def getPrice(type):
     url = "https://www.okex.com/v3/c2c/tradingOrders/book?side=all&baseCurrency=" + type +"&quoteCurrency=cny&userType=certified&paymentMethod=all"
     r = requests.get(url, timeout=1)
     if(r.status_code == 200):
+        print(datetime.now())
         __redis.set("oken-" + type, r.text)
         __pipe.execute()
 #主程序
