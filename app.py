@@ -29,7 +29,7 @@ def getOkenAll():
     conn = redis.Redis(host='127.0.0.1', port=6379, db=0)
     btc = conn.get("oken-btc")
     usdt = conn.get("oken-usdt")
-    return {"btc": btc, "usdt": usdt}
+    return {"btc": json.loads(btc), "usdt": json.loads(usdt)}
 
 
 def getFromRedis(coinType, request):
