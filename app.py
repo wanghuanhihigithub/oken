@@ -46,4 +46,12 @@ def getFromRedis(coinType, request):
     return conn.get(coinType + "-" + fromType + "-" + toType)
 
 
+@route("/api/ubit/btc")
+def get_coinEx():
+    url = "https://api.upbit.com/v1/ticker?markets=KRW-BTC"
+    r = requests.get(url, timeout=2)
+    if(r.status_code == 200):
+        return r.text
+    return None
+
 run(host='localhost', port=9000)
