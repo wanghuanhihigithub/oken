@@ -20,6 +20,7 @@ def create_pool():
 #OKEN币接收Usdt和Btc变更
 def on_message(ws, message):
     message = json.loads(message)[0]
+    print(message)
     redisKey = None
     if("ok_sub_spot_btc_usdt_ticker" == message["channel"]):
         redisKey = "oken-usdt-btc"
@@ -27,9 +28,9 @@ def on_message(ws, message):
     if("ok_sub_spot_eth_usdt_ticker" == message["channel"]):
         redisKey = "oken-usdt-eth"
 
-    if(redisKey != None):
-        __redis.set(redisKey, message["data"])
-        __pipe.execute()
+    #if(redisKey != None):
+        #__redis.set(redisKey, message["data"])
+        #__pipe.execute()
 
 #oken币发生异常
 def on_error(ws, error):
@@ -67,5 +68,5 @@ def runOkenWs():
 
 #主程序
 if __name__ == "__main__":
-    create_pool()
+    #create_pool()
     runOkenWs()
