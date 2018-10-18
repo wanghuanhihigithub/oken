@@ -6,7 +6,8 @@ import redis
 import time
 
 #OKEN币ws地址
-oken_ws_url = "wss://real.okex.com:10441/websocket"
+#oken_ws_url = "wss://real.okex.com:10441/websocket"
+oken_ws_url = "wss://real.okex.com:10440/websocket/okexapi"
 
 #创建数据库连接池
 def create_pool():
