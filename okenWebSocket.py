@@ -29,9 +29,9 @@ def on_message(ws, message):
     if("ok_sub_spot_eth_usdt_ticker" == message["channel"]):
         redisKey = "oken-usdt-eth"
 
-    #if(redisKey != None):
-        #__redis.set(redisKey, message["data"])
-        #__pipe.execute()
+    if(redisKey != None):
+        __redis.set(redisKey, message["data"])
+        __pipe.execute()
 
 #oken币发生异常
 def on_error(ws, error):
