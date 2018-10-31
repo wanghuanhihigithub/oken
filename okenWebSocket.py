@@ -20,7 +20,8 @@ def create_pool():
 
 #OKEN币接收Usdt和Btc变更
 def on_message(ws, message):
-    message = json.loads(message)[0]
+    print(message)
+    '''message = json.loads(message)[0]
     print(message)
     redisKey = None
     if("ok_sub_spot_btc_usdt_ticker" == message["channel"]):
@@ -31,7 +32,7 @@ def on_message(ws, message):
 
     if(redisKey != None):
         __redis.set(redisKey, message["data"])
-        __pipe.execute()
+        __pipe.execute()'''
 
 #oken币发生异常
 def on_error(ws, error):
