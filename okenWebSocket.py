@@ -21,7 +21,7 @@ def create_pool():
 
 #OKEN币接收Usdt和Btc变更
 def on_message(ws, message):
-    print("接收消息", message)
+    print("接收消息", inflate(message))
     '''message = json.loads(message)[0]
     print(message)
     redisKey = None
@@ -65,7 +65,7 @@ def on_open(ws):
 
 def on_close(ws):
     print("oken ### closed ###")
-    runOkenWs()
+    #runOkenWs()
 
 #开启OKEN币Ws
 def runOkenWs():
