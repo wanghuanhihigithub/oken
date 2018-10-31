@@ -1,4 +1,4 @@
-import gzip
+import zlib
 import threading
 
 import websocket
@@ -7,7 +7,8 @@ import time
 
 #OKEN币ws地址
 #oken_ws_url = "wss://real.okex.com:10441/websocket"
-oken_ws_url = "wss://://real.okex.com:10440/websocket/okexapi?compress=true"
+oken_ws_url = "wss://://real.okex.com:10440/websocket/okexapi"
+
 
 #创建数据库连接池
 def create_pool():
@@ -18,9 +19,10 @@ def create_pool():
     __pipe = __redis.pipeline(transaction=True)
     print(__redis, __pipe)
 
+
 #OKEN币接收Usdt和Btc变更
 def on_message(ws, message):
-    print("接收消息", gzip.decompress(message).decode())
+    print("接收消息", inflate(message))
     '''message = json.loads(message)[0]
     print(message)
     redisKey = None
@@ -33,6 +35,16 @@ def on_message(ws, message):
     if(redisKey != None):
         __redis.set(redisKey, message["data"])
         __pipe.execute()'''
+
+
+def inflate(data):
+    decompress = zlib.decompressobj(
+            -zlib.MAX_WBITS  # see above
+    )
+    inflated = decompress.decompress(data)
+    inflated += decompress.flush()
+    return inflated
+
 
 #oken币发生异常
 def on_error(ws, error):
