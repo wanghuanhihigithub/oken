@@ -20,7 +20,7 @@ def create_pool():
 
 #OKEN币接收Usdt和Btc变更
 def on_message(ws, message):
-    print(message)
+    print("接收消息", message)
     '''message = json.loads(message)[0]
     print(message)
     redisKey = None
