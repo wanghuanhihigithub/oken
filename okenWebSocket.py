@@ -1,4 +1,5 @@
 import zlib
+import json
 import threading
 
 import websocket
@@ -21,8 +22,8 @@ def create_pool():
 
 #OKEN币接收Usdt和Btc变更
 def on_message(ws, message):
-    print("接收消息", inflate(message))
-    '''message = json.loads(message)[0]
+    message = inflate(message)
+    message = json.loads(message)[0]
     print(message)
     redisKey = None
     if("ok_sub_spot_btc_usdt_ticker" == message["channel"]):
@@ -33,7 +34,7 @@ def on_message(ws, message):
 
     if(redisKey != None):
         __redis.set(redisKey, message["data"])
-        __pipe.execute()'''
+        __pipe.execute()
 
 
 def inflate(data):
@@ -65,7 +66,7 @@ def on_open(ws):
 
 def on_close(ws):
     print("oken ### closed ###")
-    #runOkenWs()
+    runOkenWs()
 
 #开启OKEN币Ws
 def runOkenWs():
