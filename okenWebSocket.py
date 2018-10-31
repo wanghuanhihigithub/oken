@@ -6,8 +6,7 @@ import redis
 import time
 
 #OKEN币ws地址
-#oken_ws_url = "wss://real.okex.com:10441/websocket"
-oken_ws_url = "wss://://real.okex.com:10440/websocket/okexapi"
+oken_ws_url = "wss://real.okex.com:10441/websocket"
 
 
 #创建数据库连接池
@@ -22,7 +21,7 @@ def create_pool():
 
 #OKEN币接收Usdt和Btc变更
 def on_message(ws, message):
-    print("接收消息", inflate(message))
+    print("接收消息", message)
     '''message = json.loads(message)[0]
     print(message)
     redisKey = None
